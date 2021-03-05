@@ -8,8 +8,8 @@
 
     <TextView
         android:id="@+id/listownerName2"
-        android:layout_width="412dp"
-        android:layout_height="105dp"
+        android:layout_width="411dp"
+        android:layout_height="89dp"
         android:background="#959393"
         android:gravity="center"
         android:text="Your name"
@@ -21,8 +21,8 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="411dp"
-        android:layout_height="24dp"
+        android:layout_width="413dp"
+        android:layout_height="17dp"
         android:layout_marginTop="16dp"
         android:background="#959393"
         android:gravity="center|top"
@@ -38,12 +38,12 @@
         android:id="@+id/listownerPic2"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/listownerName2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintHorizontal_bias="0.046"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024"
+        app:layout_constraintVertical_bias="0.5"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -60,7 +60,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listownerName2"
-        app:layout_constraintVertical_bias="0.016" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView4"
@@ -295,7 +295,7 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/listownerName2"
         app:layout_constraintVertical_bias="1.0" />
