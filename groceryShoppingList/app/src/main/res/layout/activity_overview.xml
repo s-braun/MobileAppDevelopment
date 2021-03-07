@@ -23,26 +23,37 @@
         android:id="@+id/buttonList1"
         android:layout_width="392dp"
         android:layout_height="175dp"
-        android:text="Home Groceries\nJohn Smith"
         android:paddingTop="70dp"
+        android:text="Home Groceries\nJohn Smith"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listownerName3"
-        tools:layout_editor_absoluteX="6dp" />
+        app:layout_constraintVertical_bias="0.028" />
 
     <Button
         android:id="@+id/buttonList2"
         android:layout_width="392dp"
         android:layout_height="175dp"
-        android:text="Dinner Supplies\nJohn Smith"
         android:paddingTop="70dp"
+        android:text="Dinner Supplies\nJohn Smith"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonList1"
-        tools:layout_editor_absoluteX="9dp" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="69dp"
         android:layout_height="73dp"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/listownerName3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintStart_toStartOf="@+id/listownerName3"
+        app:layout_constraintTop_toTopOf="@+id/listownerName3"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
@@ -50,8 +61,12 @@
         android:layout_width="51dp"
         android:layout_height="48dp"
         android:translationZ="10"
-        tools:layout_editor_absoluteX="180dp"
-        tools:layout_editor_absoluteY="138dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonList1"
+        app:layout_constraintEnd_toEndOf="@+id/buttonList1"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="@+id/buttonList1"
+        app:layout_constraintTop_toTopOf="@+id/buttonList1"
+        app:layout_constraintVertical_bias="0.196"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
@@ -59,17 +74,26 @@
         android:layout_width="51dp"
         android:layout_height="48dp"
         android:translationZ="10"
-        tools:layout_editor_absoluteX="180dp"
-        tools:layout_editor_absoluteY="312dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonList2"
+        app:layout_constraintEnd_toEndOf="@+id/buttonList2"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="@+id/buttonList2"
+        app:layout_constraintTop_toBottomOf="@+id/buttonList1"
+        app:layout_constraintVertical_bias="0.196"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        app:srcCompat="@android:drawable/ic_input_add"
-        tools:layout_editor_absoluteX="330dp"
-        tools:layout_editor_absoluteY="647dp" />
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="401dp"
+        android:layout_height="87dp"
+        android:drawableLeft="@android:drawable/ic_input_add"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:text="Create a new shopping list"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonList2"
+        app:layout_constraintVertical_bias="0.909" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
