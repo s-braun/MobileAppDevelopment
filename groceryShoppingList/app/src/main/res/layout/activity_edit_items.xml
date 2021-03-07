@@ -62,8 +62,8 @@
 
             <EditText
                 android:id="@+id/editItem"
-                android:layout_width="407dp"
-                android:layout_height="87dp"
+                android:layout_width="0dp"
+                android:layout_height="86dp"
                 android:background="#CDC7C7"
                 android:backgroundTint="#70919191"
                 android:ems="10"

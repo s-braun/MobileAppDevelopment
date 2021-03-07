@@ -8,8 +8,8 @@
 
     <TextView
         android:id="@+id/listownerName2"
-        android:layout_width="411dp"
-        android:layout_height="89dp"
+        android:layout_width="413dp"
+        android:layout_height="90dp"
         android:background="#959393"
         android:gravity="center"
         android:text="Your name"
