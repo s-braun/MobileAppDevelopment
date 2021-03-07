@@ -26,7 +26,7 @@ import com.example.groceryshoppinglist.R;
 import com.example.groceryshoppinglist.ui.login.LoginViewModel;
 import com.example.groceryshoppinglist.ui.login.LoginViewModelFactory;
 
-public class LoginActivity extends AppCompatActivity {
+public class main extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
 
