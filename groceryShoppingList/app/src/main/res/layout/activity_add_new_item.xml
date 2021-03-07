@@ -20,36 +20,44 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/Header2"
-                android:layout_width="411dp"
-                android:layout_height="142dp"
-                android:background="#9F98BBBF"
-                android:drawableLeft="@android:drawable/ic_menu_gallery"
-                android:drawableTint="#FFFFFF"
-                android:text="List Owner"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textSize="25sp"
+                android:id="@+id/listownerName5"
+                android:layout_width="412dp"
+                android:layout_height="105dp"
+                android:background="#959393"
+                android:gravity="center"
+                android:text="Your name"
+                android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
-                android:id="@+id/ownerNameTxt6"
-                android:layout_width="181dp"
-                android:layout_height="45dp"
-                android:text="Owner Name"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="#090909"
-                android:textSize="30sp"
-                app:layout_constraintBottom_toBottomOf="@+id/Header2"
-                app:layout_constraintEnd_toEndOf="@+id/Header2"
-                app:layout_constraintStart_toStartOf="@+id/Header2"
-                app:layout_constraintTop_toTopOf="@+id/Header2" />
+                android:id="@+id/textView13"
+                android:layout_width="411dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="16dp"
+                android:background="#959393"
+                android:gravity="center|top"
+                android:text="list owner"
+                app:layout_constraintBottom_toBottomOf="@+id/listownerName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.197" />
+
+            <ImageView
+                android:id="@+id/listownerPic4"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.052"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.024"
+                tools:srcCompat="@tools:sample/avatars" />
 
             <Spinner
                 android:id="@+id/CategoriesSpn"
@@ -59,9 +67,10 @@
                 android:entries="Category"
                 app:layout_constraintBottom_toTopOf="@+id/itemName"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.333"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ownerNameTxt6"
-                app:layout_constraintVertical_bias="0.77" />
+                app:layout_constraintTop_toBottomOf="@+id/listownerName5"
+                app:layout_constraintVertical_bias="0.786" />
 
             <EditText
                 android:id="@+id/itemName"
@@ -71,13 +80,15 @@
                 android:background="#CDC7C7"
                 android:backgroundTint="#70919191"
                 android:ems="10"
+                android:gravity="center"
                 android:inputType="textPersonName"
                 android:text="Enter Item Name"
                 app:layout_constraintBottom_toTopOf="@+id/confirmItemBtn"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/Header2"
-                app:layout_constraintVertical_bias="0.53" />
+                app:layout_constraintTop_toBottomOf="@+id/listownerName5"
+                app:layout_constraintVertical_bias="0.316" />
 
             <EditText
                 android:id="@+id/ItemAmount"
@@ -86,25 +97,29 @@
                 android:background="#FFFFFF"
                 android:backgroundTint="#70919191"
                 android:ems="10"
+                android:gravity="center"
                 android:inputType="textPersonName"
                 android:text="Enter Item Amount"
                 app:layout_constraintBottom_toTopOf="@+id/confirmItemBtn"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/itemName"
-                app:layout_constraintVertical_bias="0.13" />
+                app:layout_constraintVertical_bias="0.086" />
 
             <Button
                 android:id="@+id/confirmItemBtn"
                 style="@style/Widget.AppCompat.Button"
-                android:layout_width="414dp"
-                android:layout_height="72dp"
+                android:layout_width="382dp"
+                android:layout_height="76dp"
+                android:layout_marginBottom="16dp"
                 android:background="#98BBBF"
                 android:backgroundTint="#601D1D"
                 android:drawableLeft="@android:drawable/presence_offline"
                 android:drawableTint="#FFFFFF"
                 android:editable="false"
                 android:foregroundTint="#C3C0C0"
+                android:paddingRight="80dp"
                 android:text="Add New Item"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -115,7 +130,7 @@
                 app:iconTintMode="multiply"
                 app:layout_constraintBottom_toTopOf="@+id/cancelButton"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.482"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editItemAmount"
                 app:layout_constraintVertical_bias="0.53"
@@ -125,8 +140,8 @@
             <Button
                 android:id="@+id/cancelButton"
                 style="@android:style/Widget.Material.Button.Borderless.Colored"
-                android:layout_width="414dp"
-                android:layout_height="75dp"
+                android:layout_width="382dp"
+                android:layout_height="76dp"
                 android:background="#98BBBF"
                 android:backgroundTint="#C3C0C0"
                 android:drawableLeft="@android:drawable/presence_offline"
@@ -134,6 +149,7 @@
                 android:drawableTint="#FFFFFF"
                 android:editable="false"
                 android:foregroundTint="#C3C0C0"
+                android:paddingRight="80dp"
                 android:text="Cancel"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -144,10 +160,10 @@
                 app:iconTintMode="multiply"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.482"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Header1"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintTop_toBottomOf="@+id/listownerName5"
+                app:layout_constraintVertical_bias="0.97" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>

@@ -21,35 +21,44 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/Header1"
-                android:layout_width="411dp"
-                android:layout_height="142dp"
-                android:background="#9F98BBBF"
-                android:drawableLeft="@android:drawable/ic_menu_gallery"
-                android:drawableTint="#FFFFFF"
-                android:text="List Owner"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textSize="25sp"
+                android:id="@+id/listownerName4"
+                android:layout_width="412dp"
+                android:layout_height="105dp"
+                android:background="#959393"
+                android:gravity="center"
+                android:text="Your name"
+                android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
-                android:id="@+id/OwnerNameTxt"
-                android:layout_width="181dp"
-                android:layout_height="45dp"
-                android:text="Owner Name"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="#090909"
-                android:textSize="30sp"
-                app:layout_constraintBottom_toBottomOf="@+id/Header1"
-                app:layout_constraintEnd_toEndOf="@+id/Header1"
-                app:layout_constraintStart_toStartOf="@+id/Header1"
-                app:layout_constraintTop_toTopOf="@+id/Header1" />
+                android:id="@+id/textView12"
+                android:layout_width="411dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="16dp"
+                android:background="#959393"
+                android:gravity="center|top"
+                android:text="list owner"
+                app:layout_constraintBottom_toBottomOf="@+id/listownerName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.197" />
+
+            <ImageView
+                android:id="@+id/listownerPic3"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.052"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.024"
+                tools:srcCompat="@tools:sample/avatars" />
 
             <EditText
                 android:id="@+id/editItem"
@@ -58,13 +67,15 @@
                 android:background="#CDC7C7"
                 android:backgroundTint="#70919191"
                 android:ems="10"
+                android:gravity="center"
                 android:inputType="textPersonName"
                 android:text="ItemName"
                 app:layout_constraintBottom_toTopOf="@+id/editItemAmount"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Header1"
-                app:layout_constraintVertical_bias="0.45" />
+                app:layout_constraintTop_toBottomOf="@+id/listownerName4"
+                app:layout_constraintVertical_bias="0.589" />
 
             <EditText
                 android:id="@+id/editItemAmount"
@@ -73,25 +84,29 @@
                 android:background="#FFFFFF"
                 android:backgroundTint="#70919191"
                 android:ems="10"
+                android:gravity="center"
                 android:inputType="textPersonName"
                 android:text="itemAmount"
                 app:layout_constraintBottom_toBottomOf="@+id/cancelButton2"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Header1"
-                app:layout_constraintVertical_bias="0.22000003" />
+                app:layout_constraintTop_toBottomOf="@+id/listownerName4"
+                app:layout_constraintVertical_bias="0.232" />
 
             <Button
                 android:id="@+id/confirmEditBtn22"
                 style="@style/Widget.AppCompat.Button"
-                android:layout_width="410dp"
-                android:layout_height="76dp"
+                android:layout_width="384dp"
+                android:layout_height="73dp"
                 android:background="#98BBBF"
                 android:backgroundTint="#601D1D"
                 android:drawableLeft="@android:drawable/presence_offline"
                 android:drawableTint="#FFFFFF"
                 android:editable="false"
                 android:foregroundTint="#C3C0C0"
+                android:paddingLeft="40dp"
+                android:paddingRight="100dp"
                 android:text="Edit Item"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -102,10 +117,10 @@
                 app:iconTintMode="multiply"
                 app:layout_constraintBottom_toTopOf="@+id/cancelButton2"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.481"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editItemAmount"
-                app:layout_constraintVertical_bias="0.066"
+                app:layout_constraintVertical_bias="0.052"
                 app:rippleColor="@color/white"
                 app:strokeColor="#98BBBF" />
 
@@ -121,6 +136,8 @@
                 android:drawableTint="#FFFFFF"
                 android:editable="false"
                 android:foregroundTint="#C3C0C0"
+                android:paddingLeft="80dp"
+                android:paddingRight="140dp"
                 android:text="Cancel"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -131,9 +148,7 @@
                 app:iconTintMode="multiply"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Header1"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
