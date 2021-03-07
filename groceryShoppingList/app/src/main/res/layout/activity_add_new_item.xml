@@ -6,4 +6,149 @@
     android:layout_height="match_parent"
     tools:context=".addNewItem">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/Header2"
+                android:layout_width="411dp"
+                android:layout_height="142dp"
+                android:background="#9F98BBBF"
+                android:drawableLeft="@android:drawable/ic_menu_gallery"
+                android:drawableTint="#FFFFFF"
+                android:text="List Owner"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/ownerNameTxt6"
+                android:layout_width="181dp"
+                android:layout_height="45dp"
+                android:text="Owner Name"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="#090909"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toBottomOf="@+id/Header2"
+                app:layout_constraintEnd_toEndOf="@+id/Header2"
+                app:layout_constraintStart_toStartOf="@+id/Header2"
+                app:layout_constraintTop_toTopOf="@+id/Header2" />
+
+            <Spinner
+                android:id="@+id/CategoriesSpn"
+                android:layout_width="408dp"
+                android:layout_height="70dp"
+                android:background="#9F98BBBF"
+                android:entries="Category"
+                app:layout_constraintBottom_toTopOf="@+id/itemName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ownerNameTxt6"
+                app:layout_constraintVertical_bias="0.77" />
+
+            <EditText
+                android:id="@+id/itemName"
+                android:layout_width="407dp"
+                android:layout_height="87dp"
+                android:layout_marginEnd="4dp"
+                android:background="#CDC7C7"
+                android:backgroundTint="#70919191"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Enter Item Name"
+                app:layout_constraintBottom_toTopOf="@+id/confirmItemBtn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/Header2"
+                app:layout_constraintVertical_bias="0.53" />
+
+            <EditText
+                android:id="@+id/ItemAmount"
+                android:layout_width="match_parent"
+                android:layout_height="84dp"
+                android:background="#FFFFFF"
+                android:backgroundTint="#70919191"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Enter Item Amount"
+                app:layout_constraintBottom_toTopOf="@+id/confirmItemBtn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/itemName"
+                app:layout_constraintVertical_bias="0.13" />
+
+            <Button
+                android:id="@+id/confirmItemBtn"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="414dp"
+                android:layout_height="72dp"
+                android:background="#98BBBF"
+                android:backgroundTint="#601D1D"
+                android:drawableLeft="@android:drawable/presence_offline"
+                android:drawableTint="#FFFFFF"
+                android:editable="false"
+                android:foregroundTint="#C3C0C0"
+                android:text="Add New Item"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="#0C0C0C"
+                app:icon="@android:drawable/checkbox_on_background"
+                app:iconSize="64dp"
+                app:iconTint="#4CAF50"
+                app:iconTintMode="multiply"
+                app:layout_constraintBottom_toTopOf="@+id/cancelButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editItemAmount"
+                app:layout_constraintVertical_bias="0.53"
+                app:rippleColor="@color/white"
+                app:strokeColor="#98BBBF" />
+
+            <Button
+                android:id="@+id/cancelButton"
+                style="@android:style/Widget.Material.Button.Borderless.Colored"
+                android:layout_width="414dp"
+                android:layout_height="75dp"
+                android:background="#98BBBF"
+                android:backgroundTint="#C3C0C0"
+                android:drawableLeft="@android:drawable/presence_offline"
+                android:drawablePadding="100dp"
+                android:drawableTint="#FFFFFF"
+                android:editable="false"
+                android:foregroundTint="#C3C0C0"
+                android:text="Cancel"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="#0C0C0C"
+                app:icon="@android:drawable/ic_notification_clear_all"
+                app:iconSize="64dp"
+                app:iconTint="#FF5722"
+                app:iconTintMode="multiply"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Header1"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
