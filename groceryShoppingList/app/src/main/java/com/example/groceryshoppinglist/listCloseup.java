@@ -2,9 +2,24 @@ package com.example.groceryshoppinglist;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 public class listCloseup extends AppCompatActivity {
+
+    public void addNewItem(View view){
+                Intent newItem = new Intent(this, addNewItem.class);
+
+                startActivity(newItem);
+    }
+
+    public void editItem(View view){
+        Intent editItem = new Intent(this, editItems.class);
+
+        startActivity(editItem);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
