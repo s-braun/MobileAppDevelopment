@@ -10,4 +10,14 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_main">main</string>
+    //string for the spinner on add new item
+    <string-array name="categories_array">
+        <item>Categories</item>
+        <item>Produce</item>
+        <item>Dairy</item>
+        <item>Dry Goods</item>
+        <item>Meat</item>
+        <item>Frozen</item>
+        <item>Bakery</item>
+    </string-array>
 </resources>
