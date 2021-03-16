@@ -64,7 +64,6 @@
                 android:layout_width="411dp"
                 android:layout_height="68dp"
                 android:background="#9F98BBBF"
-                android:entries="Category"
                 app:layout_constraintBottom_toTopOf="@+id/itemName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.333"

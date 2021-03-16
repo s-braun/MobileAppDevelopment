@@ -17,6 +17,7 @@
         <activity android:name=".listCloseup"
             android:exported="true"/>
         <activity android:name=".addNewList" />
+        <activity android:name=".Overview" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:label="@string/title_activity_login" />
