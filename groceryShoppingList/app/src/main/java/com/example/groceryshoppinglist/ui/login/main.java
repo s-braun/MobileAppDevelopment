@@ -23,8 +23,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.groceryshoppinglist.R;
-import com.example.groceryshoppinglist.ui.login.LoginViewModel;
-import com.example.groceryshoppinglist.ui.login.LoginViewModelFactory;
 
 public class main extends AppCompatActivity {
 
@@ -39,7 +37,7 @@ public class main extends AppCompatActivity {
 
         final EditText usernameEditText = findViewById(R.id.username);
         final EditText passwordEditText = findViewById(R.id.password);
-        final Button loginButton = findViewById(R.id.login);
+        final Button loginButton = findViewById(R.id.buttonLogin);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
