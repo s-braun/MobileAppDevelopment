@@ -14,7 +14,19 @@ public class addNewList extends AppCompatActivity {
     public void addUser(View view) {
         FloatingActionButton addBtn = (FloatingActionButton) findViewById(R.id.btnAdd1);
 
-        addBtn.setImageDrawable(getResources().getDrawable(R.drawable.checkbox_on_background));
+
+    }
+
+    public void cancel(View view){
+        Intent cancel = new Intent(this, Overview.class);
+
+        startActivity(cancel);
+    }
+
+    public void create(View view){
+        Intent create = new Intent(this, Overview.class);
+
+        startActivity(create);
     }
 
     @Override
