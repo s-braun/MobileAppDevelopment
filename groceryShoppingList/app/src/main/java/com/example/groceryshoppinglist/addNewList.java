@@ -12,9 +12,25 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class addNewList extends AppCompatActivity {
 
-    public void addUser(View view) {
+    public void addUser1(View view) {
+
         FloatingActionButton addBtn = (FloatingActionButton) findViewById(R.id.btnAdd1);
 
+        addBtn.setImageResource(R.drawable.ic_baseline_check_circle_24);
+
+    }
+    public void addUser2(View view) {
+
+        FloatingActionButton addBtn = (FloatingActionButton) findViewById(R.id.btnAdd2);
+
+        addBtn.setImageResource(R.drawable.ic_baseline_check_circle_24);
+
+    }
+    public void addUser3(View view) {
+
+        FloatingActionButton addBtn = (FloatingActionButton) findViewById(R.id.btnAdd3);
+
+        addBtn.setImageResource(R.drawable.ic_baseline_check_circle_24);
 
     }
 

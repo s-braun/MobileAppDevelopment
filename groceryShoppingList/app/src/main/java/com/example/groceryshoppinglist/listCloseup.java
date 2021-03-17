@@ -21,6 +21,12 @@ public class listCloseup extends AppCompatActivity {
         startActivity(editItem);
     }
 
+    public void backBtn(View view){
+        Intent backBtn = new Intent(this, Overview.class);
+
+        startActivity(backBtn);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
