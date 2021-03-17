@@ -28,6 +28,12 @@ public class addNewItem extends AppCompatActivity {
         }
     }
 
+    public void cancelNewItem(View view){
+        Intent cancel = new Intent(this, listCloseup.class);
+
+        startActivity(cancel);
+    }
+
 
 
     @Override
