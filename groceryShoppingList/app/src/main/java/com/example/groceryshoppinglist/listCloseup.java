@@ -30,7 +30,6 @@ public class listCloseup extends AppCompatActivity {
     }
 
     /* Item functions until we create the list dynamically */
-
     public void editItem1(View view){
 
         Intent editItem = new Intent(this, editItems.class);
@@ -40,8 +39,78 @@ public class listCloseup extends AppCompatActivity {
         CheckBox value1 = (CheckBox) findViewById(R.id.checkItem1);
         String itemValue = value1.getText().toString();
 
-        editItem.putExtra("item1Name", itemName);
-        editItem.putExtra("item1Value", itemValue);
+        editItem.putExtra("itemName", itemName);
+        editItem.putExtra("itemValue", itemValue);
+
+        startActivity(editItem);
+    }
+    public void editItem2(View view){
+
+        Intent editItem = new Intent(this, editItems.class);
+        TextView item1 = (TextView) findViewById(R.id.item2);
+        String itemName = item1.getText().toString();
+
+        CheckBox value1 = (CheckBox) findViewById(R.id.checkItem2);
+        String itemValue = value1.getText().toString();
+
+        editItem.putExtra("itemName", itemName);
+        editItem.putExtra("itemValue", itemValue);
+
+        startActivity(editItem);
+    }
+    public void editItem3(View view){
+
+        Intent editItem = new Intent(this, editItems.class);
+        TextView item1 = (TextView) findViewById(R.id.item3);
+        String itemName = item1.getText().toString();
+
+        CheckBox value1 = (CheckBox) findViewById(R.id.checkItem3);
+        String itemValue = value1.getText().toString();
+
+        editItem.putExtra("itemName", itemName);
+        editItem.putExtra("itemValue", itemValue);
+
+        startActivity(editItem);
+    }
+    public void editItem4(View view){
+
+        Intent editItem = new Intent(this, editItems.class);
+        TextView item1 = (TextView) findViewById(R.id.item4);
+        String itemName = item1.getText().toString();
+
+        CheckBox value1 = (CheckBox) findViewById(R.id.checkItem4);
+        String itemValue = value1.getText().toString();
+
+        editItem.putExtra("itemName", itemName);
+        editItem.putExtra("itemValue", itemValue);
+
+        startActivity(editItem);
+    }
+    public void editItem5(View view){
+
+        Intent editItem = new Intent(this, editItems.class);
+        TextView item1 = (TextView) findViewById(R.id.item5);
+        String itemName = item1.getText().toString();
+
+        CheckBox value1 = (CheckBox) findViewById(R.id.checkItem5);
+        String itemValue = value1.getText().toString();
+
+        editItem.putExtra("itemName", itemName);
+        editItem.putExtra("itemValue", itemValue);
+
+        startActivity(editItem);
+    }
+    public void editItem6(View view){
+
+        Intent editItem = new Intent(this, editItems.class);
+        TextView item = (TextView) findViewById(R.id.item6);
+        String itemName = item.getText().toString();
+
+        CheckBox value1 = (CheckBox) findViewById(R.id.checkItem6);
+        String itemValue = value1.getText().toString();
+
+        editItem.putExtra("itemName", itemName);
+        editItem.putExtra("itemValue", itemValue);
 
         startActivity(editItem);
     }
