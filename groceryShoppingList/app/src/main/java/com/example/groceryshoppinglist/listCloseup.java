@@ -11,10 +11,6 @@ import android.widget.TextView;
 
 public class listCloseup extends AppCompatActivity {
 
-    //get values from input
-    Intent intent = getIntent();
-    String name = intent.getStringExtra("userName");
-
     public void addNewItem(View view){
                 Intent newItem = new Intent(this, addNewItem.class);
 
@@ -28,13 +24,24 @@ public class listCloseup extends AppCompatActivity {
     }
 
     public void backBtn(View view){
+        //get values from input
+        Intent intent = getIntent();
+        int listCount = intent.getIntExtra("listCount", 0);
+        listCount++;
+        String name = intent.getStringExtra("userName");
+
         Intent backBtn = new Intent(this, Overview.class);
+        backBtn.putExtra("listCount", listCount);
+        backBtn.putExtra("username", name);
 
         startActivity(backBtn);
     }
 
     /* Item functions until we create the list dynamically */
     public void editItem1(View view){
+        //get values from input
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("userName");
 
         Intent editItem = new Intent(this, editItems.class);
         TextView item1 = (TextView) findViewById(R.id.item1);
@@ -51,6 +58,9 @@ public class listCloseup extends AppCompatActivity {
         startActivity(editItem);
     }
     public void editItem2(View view){
+        //get values from input
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("userName");
 
         Intent editItem = new Intent(this, editItems.class);
         TextView item1 = (TextView) findViewById(R.id.item2);
@@ -62,10 +72,14 @@ public class listCloseup extends AppCompatActivity {
         editItem.putExtra("itemName", itemName);
         editItem.putExtra("itemValue", itemValue);
         editItem.putExtra("id", 2);
+        editItem.putExtra("userName", name);
 
         startActivity(editItem);
     }
     public void editItem3(View view){
+        //get values from input
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("userName");
 
         Intent editItem = new Intent(this, editItems.class);
         TextView item1 = (TextView) findViewById(R.id.item3);
@@ -77,10 +91,14 @@ public class listCloseup extends AppCompatActivity {
         editItem.putExtra("itemName", itemName);
         editItem.putExtra("itemValue", itemValue);
         editItem.putExtra("id", 3);
+        editItem.putExtra("userName", name);
 
         startActivity(editItem);
     }
     public void editItem4(View view){
+        //get values from input
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("userName");
 
         Intent editItem = new Intent(this, editItems.class);
         TextView item1 = (TextView) findViewById(R.id.item4);
@@ -92,10 +110,14 @@ public class listCloseup extends AppCompatActivity {
         editItem.putExtra("itemName", itemName);
         editItem.putExtra("itemValue", itemValue);
         editItem.putExtra("id", 4);
+        editItem.putExtra("userName", name);
 
         startActivity(editItem);
     }
     public void editItem5(View view){
+        //get values from input
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("userName");
 
         Intent editItem = new Intent(this, editItems.class);
         TextView item1 = (TextView) findViewById(R.id.item5);
@@ -107,10 +129,14 @@ public class listCloseup extends AppCompatActivity {
         editItem.putExtra("itemName", itemName);
         editItem.putExtra("itemValue", itemValue);
         editItem.putExtra("id", 5);
+        editItem.putExtra("userName", name);
 
         startActivity(editItem);
     }
     public void editItem6(View view){
+        //get values from input
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("userName");
 
         Intent editItem = new Intent(this, editItems.class);
         TextView item = (TextView) findViewById(R.id.item6);
@@ -122,6 +148,7 @@ public class listCloseup extends AppCompatActivity {
         editItem.putExtra("itemName", itemName);
         editItem.putExtra("itemValue", itemValue);
         editItem.putExtra("id", 6);
+        editItem.putExtra("userName", name);
 
         startActivity(editItem);
     }
@@ -138,9 +165,13 @@ public class listCloseup extends AppCompatActivity {
         String itemValue = intent.getStringExtra("edited_amount");
         int id = intent.getIntExtra("editedID", 0);
 
-        if(name != "") {
+        if(name != null) {
             TextView ownerName = (TextView) findViewById(R.id.listownerName2);
             ownerName.setText(String.valueOf(name));
+        } else {
+            String name1 = intent.getStringExtra("username");
+            TextView ownerName = (TextView) findViewById(R.id.listownerName2);
+            ownerName.setText(String.valueOf(name1));
         }
 
         switch (id){

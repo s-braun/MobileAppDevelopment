@@ -47,9 +47,11 @@ public class addNewList extends AppCompatActivity {
         Intent intent = getIntent();
         int listCount = intent.getIntExtra("numOfLists", 0);
         listCount++;
+        String name = intent.getStringExtra("userName");
 
         Intent create = new Intent(this, Overview.class);
         create.putExtra("listCount", listCount);
+        create.putExtra("username", name);
         startActivity(create);
     }
 

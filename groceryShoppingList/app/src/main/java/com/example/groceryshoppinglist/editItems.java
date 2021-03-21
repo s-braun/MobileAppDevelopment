@@ -44,6 +44,7 @@ public class editItems extends AppCompatActivity {
                 intent.putExtra("edited_name", editedName);
                 intent.putExtra("edited_amount", editedAmount);
                 intent.putExtra("editedID", id);
+                intent.putExtra("username", name);
                 startActivity(intent);
             }
         });

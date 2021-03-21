@@ -81,6 +81,7 @@ public class Overview extends AppCompatActivity {
 
     private void openListActivity(int id) {
         Intent intent = new Intent(this, listCloseup.class);
+        intent.putExtra("listCount", numOfLists);
         intent.putExtra("listId", id);
         intent.putExtra("userName", username);
         startActivity(intent);
