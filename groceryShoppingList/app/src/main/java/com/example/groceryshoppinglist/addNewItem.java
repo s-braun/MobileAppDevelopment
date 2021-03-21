@@ -11,22 +11,24 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
-public class addNewItem extends AppCompatActivity {
+public class addNewItem extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     //intake spinner data
-    public class SpinnerActivity extends Activity implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-            final Spinner NumberSpinner = (Spinner) findViewById(R.id.CategoriesSpn);
-            NumberSpinner.setOnItemSelectedListener(this);
-            String number = parent.getItemAtPosition(pos).toString();
+            final Spinner CategorySpinner = (Spinner) findViewById(R.id.CategoriesSpn);
+            CategorySpinner.setOnItemSelectedListener(this);
+            String category = parent.getItemAtPosition(pos).toString();
+            Intent move = new Intent (this, addNewItem.class);
+            move.putExtra("item_category", category);
+            return;
         }
 
 
         public void onNothingSelected(AdapterView<?> parent) {
 
         }
-    }
 
     public void cancelNewItem(View view){
         Intent cancel = new Intent(this, listCloseup.class);
@@ -47,6 +49,8 @@ public class addNewItem extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         NumSpinner.setAdapter(adapter);
 
+        String category = getIntent().getStringExtra("item_category");
+
         //make text boxes intake data
         final EditText itemName = findViewById(R.id.itemName);
         final EditText itemAmount = findViewById(R.id.ItemAmount);
@@ -60,6 +64,7 @@ public class addNewItem extends AppCompatActivity {
                 Intent intent = new Intent (addNewItem.this, listCloseup.class);
                 intent.putExtra("item_name", item);
                 intent.putExtra("item_amount", amount);
+                intent.putExtra("item_category", category);
                 startActivity(intent);
             }
         });
