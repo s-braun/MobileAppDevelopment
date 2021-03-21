@@ -11,6 +11,10 @@ import android.widget.TextView;
 
 public class listCloseup extends AppCompatActivity {
 
+    //get values from input
+    Intent intent = getIntent();
+    String name = intent.getStringExtra("userName");
+
     public void addNewItem(View view){
                 Intent newItem = new Intent(this, addNewItem.class);
 
@@ -42,6 +46,7 @@ public class listCloseup extends AppCompatActivity {
         editItem.putExtra("itemName", itemName);
         editItem.putExtra("itemValue", itemValue);
         editItem.putExtra("id", 1);
+        editItem.putExtra("userName", name);
 
         startActivity(editItem);
     }
@@ -133,6 +138,11 @@ public class listCloseup extends AppCompatActivity {
         String itemValue = intent.getStringExtra("edited_amount");
         int id = intent.getIntExtra("editedID", 0);
 
+        if(name != "") {
+            TextView ownerName = (TextView) findViewById(R.id.listownerName2);
+            ownerName.setText(String.valueOf(name));
+        }
+
         switch (id){
             case 1:
                 TextView item1 = (TextView) findViewById(R.id.item1);
@@ -172,8 +182,6 @@ public class listCloseup extends AppCompatActivity {
                 break;
         }
 
-        TextView ownerName = (TextView) findViewById(R.id.listownerName2);
 
-        ownerName.setText(String.valueOf(name));
     }
 }

@@ -82,7 +82,7 @@ public class Overview extends AppCompatActivity {
     private void openListActivity(int id) {
         Intent intent = new Intent(this, listCloseup.class);
         intent.putExtra("listId", id);
-        intent.putExtra("userName", "Uncle Sam");
+        intent.putExtra("userName", username);
         startActivity(intent);
     }
 
@@ -105,7 +105,7 @@ public class Overview extends AppCompatActivity {
     private void openAddNewListActivity() {
         Intent intent = new Intent(this, addNewList.class);
         intent.putExtra("numOfLists", numOfLists);
-        intent.putExtra("userName", "Uncle Sam");
+        intent.putExtra("userName", username);
         startActivity(intent);
     }
 
