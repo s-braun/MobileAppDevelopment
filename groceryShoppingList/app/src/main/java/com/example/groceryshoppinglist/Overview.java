@@ -8,9 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
+import android.widget.TextView;
 
 public class Overview extends AppCompatActivity {
 
+    private String username;
     private int numOfLists;
     private Button[] buttonListsArray;
 
@@ -19,13 +21,17 @@ public class Overview extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_overview);
 
-        //get numOfLists from addNewList after created a new one
+        // Get intents, including the number of lists and username of the user
         Intent intent = getIntent();
         numOfLists = intent.getIntExtra("listCount", 0);
+        username = intent.getExtras().getString("username", "");
 
         // Create button array for number of lists that user has
         buttonListsArray = new Button[numOfLists];
 
+        // Personalize the text view using username
+        TextView title = findViewById(R.id.listOwnerName);
+        title.setText(username + "'s Lists");
 
         // Create the buttons for each list
         createButtons();
