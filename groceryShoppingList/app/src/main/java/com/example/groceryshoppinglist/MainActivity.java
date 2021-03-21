@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,10 +28,19 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private String getUsername() {
+        EditText usernameInput = findViewById(R.id.username);
+        return usernameInput.getText().toString();
+    }
+
+    private String getPassword() {
+        EditText passwordInput = findViewById(R.id.password);
+        return passwordInput.getText().toString();
+    }
 
     public void openOverviewActivity() {
         Intent intent = new Intent(this, Overview.class);
-        //intent.putExtra("username", );
+        intent.putExtra("username", getUsername());
         startActivity(intent);
     }
 }
