@@ -27,7 +27,6 @@ public class listCloseup extends AppCompatActivity {
         //get values from input
         Intent intent = getIntent();
         int listCount = intent.getIntExtra("listCount", 0);
-        listCount++;
         String name = intent.getStringExtra("userName");
 
         Intent backBtn = new Intent(this, Overview.class);
