@@ -82,7 +82,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/item1"
         android:layout_width="411dp"
         android:layout_height="60dp"
         android:background="#C1C1C1"
@@ -99,7 +99,7 @@
         app:layout_constraintVertical_bias="0" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/checkItem1"
         android:layout_width="69dp"
         android:layout_height="48dp"
         android:scaleX="1.2"
@@ -107,14 +107,14 @@
         android:text="2x"
         android:textColor="#353434"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView4"
+        app:layout_constraintBottom_toBottomOf="@+id/item1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.105"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/item2"
         android:layout_width="411dp"
         android:layout_height="60dp"
         android:background="#C1C1C1"
@@ -127,11 +127,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/item1"
         app:layout_constraintVertical_bias="0.015" />
 
     <CheckBox
-        android:id="@+id/checkBox3"
+        android:id="@+id/checkItem2"
         android:layout_width="69dp"
         android:layout_height="48dp"
         android:scaleX="1.2"
@@ -139,11 +139,11 @@
         android:text="1x"
         android:textColor="#353434"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView5"
+        app:layout_constraintBottom_toBottomOf="@+id/item2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.105"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView5"
+        app:layout_constraintTop_toTopOf="@+id/item2"
         app:layout_constraintVertical_bias="0.5" />
 
     <TextView
@@ -159,11 +159,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/item2"
         app:layout_constraintVertical_bias="0.015" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/item3"
         android:layout_width="411dp"
         android:layout_height="60dp"
         android:background="#C1C1C1"
@@ -180,7 +180,7 @@
         app:layout_constraintVertical_bias="0" />
 
     <CheckBox
-        android:id="@+id/checkBox2"
+        android:id="@+id/checkItem3"
         android:layout_width="69dp"
         android:layout_height="48dp"
         android:scaleX="1.2"
@@ -188,14 +188,14 @@
         android:text="3x"
         android:textColor="#353434"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView6"
+        app:layout_constraintBottom_toBottomOf="@+id/item3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.105"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView6" />
+        app:layout_constraintTop_toTopOf="@+id/item3" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/item4"
         android:layout_width="411dp"
         android:layout_height="60dp"
         android:background="#C1C1C1"
@@ -208,11 +208,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/item3"
         app:layout_constraintVertical_bias="0.018" />
 
     <CheckBox
-        android:id="@+id/checkBox4"
+        android:id="@+id/checkItem4"
         android:layout_width="69dp"
         android:layout_height="48dp"
         android:scaleX="1.2"
@@ -220,15 +220,15 @@
         android:text="5x"
         android:textColor="#353434"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView8"
+        app:layout_constraintBottom_toBottomOf="@+id/item4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.105"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView8"
+        app:layout_constraintTop_toTopOf="@+id/item4"
         app:layout_constraintVertical_bias="0.5" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/item5"
         android:layout_width="411dp"
         android:layout_height="60dp"
         android:background="#C1C1C1"
@@ -241,11 +241,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/item4"
         app:layout_constraintVertical_bias="0.025" />
 
     <CheckBox
-        android:id="@+id/checkBox5"
+        android:id="@+id/checkItem5"
         android:layout_width="69dp"
         android:layout_height="48dp"
         android:scaleX="1.2"
@@ -253,11 +253,11 @@
         android:text="2x"
         android:textColor="#353434"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView9"
+        app:layout_constraintBottom_toBottomOf="@+id/item5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.105"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView9"
+        app:layout_constraintTop_toTopOf="@+id/item5"
         app:layout_constraintVertical_bias="0.5" />
 
     <TextView
@@ -273,11 +273,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/item5"
         app:layout_constraintVertical_bias="0.03" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/item6"
         android:layout_width="411dp"
         android:layout_height="60dp"
         android:background="#C1C1C1"
@@ -294,7 +294,7 @@
         app:layout_constraintVertical_bias="0" />
 
     <CheckBox
-        android:id="@+id/checkBox6"
+        android:id="@+id/checkItem6"
         android:layout_width="69dp"
         android:layout_height="48dp"
         android:scaleX="1.2"
@@ -302,7 +302,7 @@
         android:text="2x"
         android:textColor="#353434"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView11"
+        app:layout_constraintBottom_toBottomOf="@+id/item6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toStartOf="parent"

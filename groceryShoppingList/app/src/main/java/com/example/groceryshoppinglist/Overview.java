@@ -94,6 +94,8 @@ public class Overview extends AppCompatActivity {
 
     private void openAddNewListActivity() {
         Intent intent = new Intent(this, addNewList.class);
+        intent.putExtra("numOfLists", numOfLists);
+        intent.putExtra("userName", "Uncle Sam");
         startActivity(intent);
     }
 
