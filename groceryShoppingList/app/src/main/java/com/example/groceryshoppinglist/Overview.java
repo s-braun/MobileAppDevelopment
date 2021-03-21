@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Overview extends AppCompatActivity {
 
@@ -21,17 +22,22 @@ public class Overview extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_overview);
 
-        // Get intents, including the number of lists and username of the user
-        Intent intent = getIntent();
-        numOfLists = intent.getIntExtra("listCount", 0);
-        username = intent.getExtras().getString("username", "");
+        try {
+            // Get intents, including the number of lists and username of the user
+            Intent intent = getIntent();
+            numOfLists = intent.getIntExtra("listCount", 0);
+            username = intent.getExtras().getString("username", "");
 
-        // Create button array for number of lists that user has
-        buttonListsArray = new Button[numOfLists];
+            // Create button array for number of lists that user has
+            buttonListsArray = new Button[numOfLists];
 
-        // Personalize the text view using username
-        TextView title = findViewById(R.id.listOwnerName);
-        title.setText(username + "'s Lists");
+            // Personalize the text view using username
+            TextView title = findViewById(R.id.listOwnerName);
+            title.setText(username + "'s Lists");
+        } catch (Exception e) {
+            Toast.makeText(this, "No data received. " + e, Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         // Create the buttons for each list
         createButtons();
@@ -76,6 +82,7 @@ public class Overview extends AppCompatActivity {
     private void openListActivity(int id) {
         Intent intent = new Intent(this, listCloseup.class);
         intent.putExtra("listId", id);
+        intent.putExtra("userName", "Uncle Sam");
         startActivity(intent);
     }
 
