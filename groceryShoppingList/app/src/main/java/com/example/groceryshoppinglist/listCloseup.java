@@ -41,6 +41,7 @@ public class listCloseup extends AppCompatActivity {
 
         editItem.putExtra("itemName", itemName);
         editItem.putExtra("itemValue", itemValue);
+        editItem.putExtra("id", 1);
 
         startActivity(editItem);
     }
@@ -55,6 +56,7 @@ public class listCloseup extends AppCompatActivity {
 
         editItem.putExtra("itemName", itemName);
         editItem.putExtra("itemValue", itemValue);
+        editItem.putExtra("id", 2);
 
         startActivity(editItem);
     }
@@ -69,6 +71,7 @@ public class listCloseup extends AppCompatActivity {
 
         editItem.putExtra("itemName", itemName);
         editItem.putExtra("itemValue", itemValue);
+        editItem.putExtra("id", 3);
 
         startActivity(editItem);
     }
@@ -83,6 +86,7 @@ public class listCloseup extends AppCompatActivity {
 
         editItem.putExtra("itemName", itemName);
         editItem.putExtra("itemValue", itemValue);
+        editItem.putExtra("id", 4);
 
         startActivity(editItem);
     }
@@ -97,6 +101,7 @@ public class listCloseup extends AppCompatActivity {
 
         editItem.putExtra("itemName", itemName);
         editItem.putExtra("itemValue", itemValue);
+        editItem.putExtra("id", 5);
 
         startActivity(editItem);
     }
@@ -111,6 +116,7 @@ public class listCloseup extends AppCompatActivity {
 
         editItem.putExtra("itemName", itemName);
         editItem.putExtra("itemValue", itemValue);
+        editItem.putExtra("id", 6);
 
         startActivity(editItem);
     }
@@ -123,6 +129,48 @@ public class listCloseup extends AppCompatActivity {
         //get values from input
         Intent intent = getIntent();
         String name = intent.getStringExtra("userName");
+        String itemName = intent.getStringExtra("edited_name");
+        String itemValue = intent.getStringExtra("edited_amount");
+        int id = intent.getIntExtra("editedID", 0);
+
+        switch (id){
+            case 1:
+                TextView item1 = (TextView) findViewById(R.id.item1);
+                item1.setText(String.valueOf(itemName));
+                CheckBox value1 = (CheckBox) findViewById(R.id.checkItem1);
+                value1.setText(String.valueOf(itemValue));
+                break;
+            case 2:
+                TextView item2 = (TextView) findViewById(R.id.item2);
+                item2.setText(String.valueOf(itemName));
+                CheckBox value2 = (CheckBox) findViewById(R.id.checkItem2);
+                value2.setText(String.valueOf(itemValue));
+                break;
+            case 3:
+                TextView item3 = (TextView) findViewById(R.id.item3);
+                item3.setText(String.valueOf(itemName));
+                CheckBox value3 = (CheckBox) findViewById(R.id.checkItem3);
+                value3.setText(String.valueOf(itemValue));
+                break;
+            case 4:
+                TextView item4 = (TextView) findViewById(R.id.item4);
+                item4.setText(String.valueOf(itemName));
+                CheckBox value4 = (CheckBox) findViewById(R.id.checkItem4);
+                value4.setText(String.valueOf(itemValue));
+                break;
+            case 5:
+                TextView item5 = (TextView) findViewById(R.id.item5);
+                item5.setText(String.valueOf(itemName));
+                CheckBox value5 = (CheckBox) findViewById(R.id.checkItem5);
+                value5.setText(String.valueOf(itemValue));
+                break;
+            case 6:
+                TextView item6 = (TextView) findViewById(R.id.item6);
+                item6.setText(String.valueOf(itemName));
+                CheckBox value6 = (CheckBox) findViewById(R.id.checkItem6);
+                value6.setText(String.valueOf(itemValue));
+                break;
+        }
 
         TextView ownerName = (TextView) findViewById(R.id.listownerName2);
 
