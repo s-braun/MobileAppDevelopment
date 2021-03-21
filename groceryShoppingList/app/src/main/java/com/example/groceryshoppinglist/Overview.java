@@ -23,6 +23,13 @@ public class Overview extends AppCompatActivity {
         numOfLists = 3;
         buttonListsArray = new Button[numOfLists];
 
+        //get numOfLists from addNewList after created a new one
+        Intent intent = getIntent();
+        int listCount = intent.getIntExtra("listCount", 0);
+
+        // set numOfLists to listCount from intent
+        numOfLists = listCount;
+
         // Create the buttons, and listen for clicks
         createButtons();
         listListener();
