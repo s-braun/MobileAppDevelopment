@@ -19,22 +19,19 @@ public class Overview extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_overview);
 
-        // Create button array for number of lists that user has
-        numOfLists = 3;
-        buttonListsArray = new Button[numOfLists];
-
         //get numOfLists from addNewList after created a new one
         Intent intent = getIntent();
-        int listCount = intent.getIntExtra("listCount", 0);
+        numOfLists = intent.getIntExtra("listCount", 0);
 
-        // set numOfLists to listCount from intent
-        numOfLists = listCount;
+        // Create button array for number of lists that user has
+        buttonListsArray = new Button[numOfLists];
 
-        // Create the buttons, and listen for clicks
+
+        // Create the buttons for each list
         createButtons();
+        // Listen for clicks on each list
         listListener();
-
-        // Add list listener
+        // Add new list button listener
         addListListener();
     }
 
