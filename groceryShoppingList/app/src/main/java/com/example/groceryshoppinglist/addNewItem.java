@@ -71,7 +71,7 @@ public class addNewItem extends AppCompatActivity implements AdapterView.OnItemS
 
         //configure cancel button
         final Button CancelButton = findViewById(R.id.cancelButton);
-        ConfirmButton.setOnClickListener(new View.OnClickListener() {
+        CancelButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
                 Intent intent = new Intent (addNewItem.this, listCloseup.class);
                 startActivity(intent);
