@@ -164,6 +164,15 @@ public class listCloseup extends AppCompatActivity {
         String itemValue = intent.getStringExtra("edited_amount");
         int id = intent.getIntExtra("editedID", 0);
 
+
+        String item5Name = intent.getStringExtra("item_name");
+        String amount = intent.getStringExtra("item_amount");
+        TextView item55 = (TextView) findViewById(R.id.item5);
+        CheckBox itemAmount = (CheckBox) findViewById(R.id.checkItem5);
+
+            item55.setText(item5Name);
+            itemAmount.setText(amount);
+
         if(name != null) {
             TextView ownerName = (TextView) findViewById(R.id.listownerName2);
             ownerName.setText(String.valueOf(name));
