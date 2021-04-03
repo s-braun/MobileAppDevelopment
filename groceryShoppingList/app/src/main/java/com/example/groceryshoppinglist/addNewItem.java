@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class addNewItem extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
@@ -30,11 +31,11 @@ public class addNewItem extends AppCompatActivity implements AdapterView.OnItemS
 
         }
 
-    public void cancelNewItem(View view){
+    /*public void cancelNewItem(View view){
         Intent cancel = new Intent(this, listCloseup.class);
 
         startActivity(cancel);
-    }
+    }*/
 
 
 
@@ -51,20 +52,33 @@ public class addNewItem extends AppCompatActivity implements AdapterView.OnItemS
 
         String category = getIntent().getStringExtra("item_category");
 
-        //make text boxes intake data
-        final EditText itemName = findViewById(R.id.itemName);
-        final EditText itemAmount = findViewById(R.id.ItemAmount);
-        String item = itemName.getText().toString();
-        String amount = itemAmount.getText().toString();
+        //get values from input
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("userName");
+        int listCount = intent.getIntExtra("listCount", 0);
+        int id = intent.getIntExtra("id", 0);
+
+        TextView listOwnerName = (TextView)findViewById(R.id.listownerName5);
+        listOwnerName.setText(name);
+
+
 
         //configure confirm button
         final Button ConfirmButton = findViewById(R.id.confirmItemBtn);
         ConfirmButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
+                //make text boxes intake data
+                final EditText itemName = findViewById(R.id.itemName);
+                final EditText itemAmount = findViewById(R.id.ItemAmount);
+                String item = itemName.getText().toString();
+                String amount = itemAmount.getText().toString();
+
                 Intent intent = new Intent (addNewItem.this, listCloseup.class);
                 intent.putExtra("item_name", item);
                 intent.putExtra("item_amount", amount);
                 intent.putExtra("item_category", category);
+                intent.putExtra("userName", name);
+                intent.putExtra("listCount", listCount);
                 startActivity(intent);
             }
         });

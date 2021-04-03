@@ -12,9 +12,15 @@ import android.widget.TextView;
 public class listCloseup extends AppCompatActivity {
 
     public void addNewItem(View view){
-                Intent newItem = new Intent(this, addNewItem.class);
+        //get values from input
+        Intent intent = getIntent();
+        int listCount = intent.getIntExtra("listCount", 0);
+        String name = intent.getStringExtra("userName");
 
-                startActivity(newItem);
+        Intent newItem = new Intent(this, addNewItem.class);
+        newItem.putExtra("userName", name);
+
+        startActivity(newItem);
     }
 
     public void editItem(View view){
