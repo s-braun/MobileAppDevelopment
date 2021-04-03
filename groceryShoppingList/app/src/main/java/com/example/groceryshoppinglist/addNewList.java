@@ -37,8 +37,13 @@ public class addNewList extends AppCompatActivity {
     }
 
     public void cancel(View view){
-        Intent cancel = new Intent(this, Overview.class);
+        Intent intent = getIntent();
+        int listCount = intent.getIntExtra("numOfLists", 0);
+        String name = intent.getStringExtra("userName");
 
+        Intent cancel = new Intent(this, Overview.class);
+        cancel.putExtra("listCount", listCount);
+        cancel.putExtra("username", name);
         startActivity(cancel);
     }
 

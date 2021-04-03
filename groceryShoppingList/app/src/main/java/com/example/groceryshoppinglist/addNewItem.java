@@ -88,6 +88,8 @@ public class addNewItem extends AppCompatActivity implements AdapterView.OnItemS
         CancelButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
                 Intent intent = new Intent (addNewItem.this, listCloseup.class);
+                intent.putExtra("userName", name);
+                intent.putExtra("listCount", listCount);
                 startActivity(intent);
             }
         });
