@@ -3,6 +3,8 @@ package com.example.groceryshoppinglist;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -57,10 +59,23 @@ public class Overview extends AppCompatActivity {
         // Get linear layout in var to add buttons to
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.linearLayout);
 
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        params.setMargins(0, 20, 0, 0);
+
         // Add a button for each list
         for (int i = 0; i < numOfLists; i++) {
             buttonListsArray[i] = new Button(this);
-            buttonListsArray[i].setText("Sample grocery list name");
+            buttonListsArray[i].setText("Sample grocery list " + i + "\nOwner's name ");
+            buttonListsArray[i].setBackgroundColor(getResources().getColor(R.color.purple_500));
+            buttonListsArray[i].setHeight(300);
+            buttonListsArray[i].setTextColor(Color.WHITE);
+            Drawable img = getResources().getDrawable( R.drawable.man );
+            img.setBounds( 20, 0, 260, 240 );
+            buttonListsArray[i].setCompoundDrawables(img,null, null, null);
+            buttonListsArray[i].setLayoutParams(params);
             linearLayout.addView( buttonListsArray[i] );
         }
     }
