@@ -42,6 +42,7 @@
         android:id="@+id/buttonAddNewList"
         android:layout_width="401dp"
         android:layout_height="87dp"
+        android:background="#4D00E9"
         android:drawableLeft="@android:drawable/ic_input_add"
         android:paddingLeft="50dp"
         android:paddingRight="50dp"

@@ -22,6 +22,7 @@ public class editItems extends AppCompatActivity {
         String itemName = intent.getStringExtra("itemName");
         String itemValue = intent.getStringExtra("itemValue");
         int id = intent.getIntExtra("id", 0);
+        int listCount = intent.getIntExtra("listCount", 0);
 
         //set listOwner name
         TextView ownerName = (TextView) findViewById(R.id.listownerName4);
@@ -44,7 +45,8 @@ public class editItems extends AppCompatActivity {
                 intent.putExtra("edited_name", editedName);
                 intent.putExtra("edited_amount", editedAmount);
                 intent.putExtra("editedID", id);
-                intent.putExtra("username", name);
+                intent.putExtra("userName", name);
+                intent.putExtra("listCount", listCount);
                 startActivity(intent);
             }
         });
