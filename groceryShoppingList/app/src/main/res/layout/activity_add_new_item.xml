@@ -149,7 +149,6 @@
                 android:drawableTint="#FFFFFF"
                 android:editable="false"
                 android:foregroundTint="#C3C0C0"
-                android:onClick="cancelNewItem"
                 android:paddingRight="80dp"
                 android:text="Cancel"
                 android:textAlignment="center"
