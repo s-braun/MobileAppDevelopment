@@ -16,7 +16,7 @@ public class ItemViewModel extends AndroidViewModel {
     public ItemViewModel (Application application){
         super(application);
         mRepository = new ItemRepository(application);
-        mAllItems = mRepository.getAllWords();
+        mAllItems = mRepository.getAllItems();
     }
 
     LiveData<List<listCloseup.Item>> getAllItems() {return mAllItems;}
