@@ -16,7 +16,7 @@ public class ItemRepository {
     ItemRepository(Application application) {
         RoomDatabase db = RoomDatabase.getDatabase(application);
         mItemDao = db.itemDao();
-        mAllItems = mItemDao.getAllItemsByCategory();
+        mAllItems = mItemDao.getAllItems();
         /*itemsByCategory = mItemDao.getItemsByCategory(category);
         itemsByCategoryAndList = mItemDao.getItemsByCategoryAndList(category, listID);*/
     }

@@ -13,12 +13,17 @@ public class NewItemActivity extends AppCompatActivity {
     public static final String EXTRA_REPLY = "com.example.android.wordlistsql.REPLY";
 
     private EditText mEditItemView;
+    private EditText mEditQuantity;
+    private EditText mEditCategory;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_item);
-        mEditItemView = findViewById(R.id.edit_word);
+        mEditItemView = findViewById(R.id.edit_item);
+        mEditQuantity = findViewById(R.id.edit_quantity);
+        mEditCategory = findViewById(R.id.edit_category);
 
         final Button button = findViewById(R.id.button_save);
         button.setOnClickListener(view -> {
@@ -26,8 +31,12 @@ public class NewItemActivity extends AppCompatActivity {
             if (TextUtils.isEmpty(mEditItemView.getText())) {
                 setResult(RESULT_CANCELED, replyIntent);
             } else {
-                String word = mEditItemView.getText().toString();
-                replyIntent.putExtra(EXTRA_REPLY, word);
+                String item = mEditItemView.getText().toString();
+                String quantity = mEditQuantity.getText().toString();
+                String category = mEditCategory.getText().toString();
+                replyIntent.putExtra("item", item);
+                replyIntent.putExtra("quantity", quantity);
+                replyIntent.putExtra("category", category);
                 setResult(RESULT_OK, replyIntent);
             }
             finish();

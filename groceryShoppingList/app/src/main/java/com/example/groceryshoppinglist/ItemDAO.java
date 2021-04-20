@@ -11,8 +11,8 @@ import java.util.List;
 @Dao
 public interface ItemDAO {
 
-    @Query("SELECT * FROM item_table ORDER BY Category")
-    LiveData<List<Item>> getAllItemsByCategory();
+    @Query("SELECT * FROM item_table ")
+    LiveData<List<Item>> getAllItems();
 
     @Query("SELECT * FROM item_table WHERE Category = :category ")
     LiveData<List<Item>> getItemsByCategory(String category);

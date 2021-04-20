@@ -11,6 +11,8 @@
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_main">main</string>
     <string name="hint_item">Item...</string>
+    <string name="hint_quantity">Quantity...</string>
+    <string name="hint_category">Category...</string>
     <string name="button_save">Save</string>
     <string name="empty_not_saved">item not saved because it is empty.</string>
 

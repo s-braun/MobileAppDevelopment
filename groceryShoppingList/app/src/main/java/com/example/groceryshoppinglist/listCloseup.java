@@ -2,6 +2,7 @@ package com.example.groceryshoppinglist;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.ColumnInfo;
@@ -14,6 +15,8 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class listCloseup extends AppCompatActivity {
 
@@ -58,7 +61,7 @@ public class listCloseup extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == NEW_WORD_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            Item item = new Item(data.getStringExtra(NewItemActivity.EXTRA_REPLY));
+            Item item = new Item(System.currentTimeMillis(), data.getStringExtra("item"), data.getStringExtra("quantity"), 1, data.getStringExtra("category"));
             mItemViewModel.insert(item);
         } else {
             Toast.makeText(
@@ -100,9 +103,17 @@ public class listCloseup extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        mItemViewModel = new ViewModelProvider(this).get(ItemViewModel.class);
+
         mItemViewModel.getAllItems().observe(this, items -> {
             //Update the cached copy of the items in the adapter.
             adapter.submitList(items);
+        });
+
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener( view -> {
+            Intent newItem = new Intent(this, NewItemActivity.class);
+            startActivityForResult(newItem, NEW_WORD_ACTIVITY_REQUEST_CODE);
         });
 
 
