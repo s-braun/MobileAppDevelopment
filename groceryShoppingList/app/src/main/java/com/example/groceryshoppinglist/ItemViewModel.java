@@ -11,7 +11,7 @@ public class ItemViewModel extends AndroidViewModel {
 
     private ItemRepository mRepository;
 
-    private final LiveData<List<listCloseup.Item>> mAllItems;
+    private final LiveData<List<Item>> mAllItems;
 
     public ItemViewModel (Application application){
         super(application);
@@ -19,8 +19,8 @@ public class ItemViewModel extends AndroidViewModel {
         mAllItems = mRepository.getAllItems();
     }
 
-    LiveData<List<listCloseup.Item>> getAllItems() {return mAllItems;}
+    LiveData<List<Item>> getAllItems() {return mAllItems;}
 
-    public void insert(listCloseup.Item item) {mRepository.insert(item);}
+    public void insert(Item item) {mRepository.insert(item);}
 
 }

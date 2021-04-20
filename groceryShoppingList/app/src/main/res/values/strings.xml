@@ -10,6 +10,10 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_main">main</string>
+    <string name="hint_item">Item...</string>
+    <string name="button_save">Save</string>
+    <string name="empty_not_saved">item not saved because it is empty.</string>
+
     //string for the spinner on add new item
     <string-array name="categories_array">
         <item>Categories</item>

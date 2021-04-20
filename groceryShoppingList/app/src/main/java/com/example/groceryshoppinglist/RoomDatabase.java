@@ -8,7 +8,7 @@ import androidx.room.Room;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {listCloseup.Item.class}, version = 1, exportSchema = false)
+@Database(entities = {Item.class}, version = 1, exportSchema = false)
 public abstract class RoomDatabase extends androidx.room.RoomDatabase {
 
     public abstract ItemDAO itemDao();
