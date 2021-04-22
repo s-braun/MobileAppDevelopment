@@ -65,13 +65,13 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="543dp"
-        tools:listitem="@layout/recyclerview_item"
+        android:layout_width="411dp"
+        android:layout_height="531dp"
         app:layout_constraintBottom_toTopOf="@+id/addItem"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listownerName2">
+        app:layout_constraintTop_toBottomOf="@+id/listownerName2"
+        tools:listitem="@layout/recyclerview_item">
 
     </androidx.recyclerview.widget.RecyclerView>
 
