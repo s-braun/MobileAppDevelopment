@@ -1,6 +1,7 @@
 package com.example.groceryshoppinglist;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +15,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        RoomDatabase db = Room.databaseBuilder(getApplicationContext(),
+                RoomDatabase.class, "database-name").build();
 
         loginListener();
     }

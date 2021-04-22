@@ -1,15 +1,29 @@
 package com.example.groceryshoppinglist;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class listCloseup extends AppCompatActivity {
+
+    private ItemViewModel mItemViewModel;
+    public static final int NEW_WORD_ACTIVITY_REQUEST_CODE = 1;
+
+
 
     public void addNewItem(View view){
         //get values from input
@@ -43,133 +57,20 @@ public class listCloseup extends AppCompatActivity {
         startActivity(backBtn);
     }
 
-    /* Item functions until we create the list dynamically */
-    public void editItem1(View view){
-        //get values from input
-        Intent intent = getIntent();
-        String name = intent.getStringExtra("userName");
-        int listCount = intent.getIntExtra("listCount", 0);
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
-        Intent editItem = new Intent(this, editItems.class);
-        TextView item1 = (TextView) findViewById(R.id.item1);
-        String itemName = item1.getText().toString();
-
-        CheckBox value1 = (CheckBox) findViewById(R.id.checkItem1);
-        String itemValue = value1.getText().toString();
-
-        editItem.putExtra("itemName", itemName);
-        editItem.putExtra("itemValue", itemValue);
-        editItem.putExtra("id", 1);
-        editItem.putExtra("userName", name);
-        editItem.putExtra("listCount", listCount);
-
-        startActivity(editItem);
+        if (requestCode == NEW_WORD_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
+            Item item = new Item(System.currentTimeMillis(), data.getStringExtra("item"), data.getStringExtra("quantity"), 1, data.getStringExtra("category"));
+            mItemViewModel.insert(item);
+        } else {
+            Toast.makeText(
+                    getApplicationContext(),
+                    R.string.empty_not_saved,
+                    Toast.LENGTH_LONG).show();
+        }
     }
-    public void editItem2(View view){
-        //get values from input
-        Intent intent = getIntent();
-        String name = intent.getStringExtra("userName");
-        int listCount = intent.getIntExtra("listCount", 0);
 
-        Intent editItem = new Intent(this, editItems.class);
-        TextView item1 = (TextView) findViewById(R.id.item2);
-        String itemName = item1.getText().toString();
-
-        CheckBox value1 = (CheckBox) findViewById(R.id.checkItem2);
-        String itemValue = value1.getText().toString();
-
-        editItem.putExtra("itemName", itemName);
-        editItem.putExtra("itemValue", itemValue);
-        editItem.putExtra("id", 2);
-        editItem.putExtra("userName", name);
-        editItem.putExtra("listCount", listCount);
-
-        startActivity(editItem);
-    }
-    public void editItem3(View view){
-        //get values from input
-        Intent intent = getIntent();
-        String name = intent.getStringExtra("userName");
-        int listCount = intent.getIntExtra("listCount", 0);
-
-        Intent editItem = new Intent(this, editItems.class);
-        TextView item1 = (TextView) findViewById(R.id.item3);
-        String itemName = item1.getText().toString();
-
-        CheckBox value1 = (CheckBox) findViewById(R.id.checkItem3);
-        String itemValue = value1.getText().toString();
-
-        editItem.putExtra("itemName", itemName);
-        editItem.putExtra("itemValue", itemValue);
-        editItem.putExtra("id", 3);
-        editItem.putExtra("userName", name);
-        editItem.putExtra("listCount", listCount);
-
-        startActivity(editItem);
-    }
-    public void editItem4(View view){
-        //get values from input
-        Intent intent = getIntent();
-        String name = intent.getStringExtra("userName");
-        int listCount = intent.getIntExtra("listCount", 0);
-
-        Intent editItem = new Intent(this, editItems.class);
-        TextView item1 = (TextView) findViewById(R.id.item4);
-        String itemName = item1.getText().toString();
-
-        CheckBox value1 = (CheckBox) findViewById(R.id.checkItem4);
-        String itemValue = value1.getText().toString();
-
-        editItem.putExtra("itemName", itemName);
-        editItem.putExtra("itemValue", itemValue);
-        editItem.putExtra("id", 4);
-        editItem.putExtra("userName", name);
-        editItem.putExtra("listCount", listCount);
-
-        startActivity(editItem);
-    }
-    public void editItem5(View view){
-        //get values from input
-        Intent intent = getIntent();
-        String name = intent.getStringExtra("userName");
-        int listCount = intent.getIntExtra("listCount", 0);
-
-        Intent editItem = new Intent(this, editItems.class);
-        TextView item1 = (TextView) findViewById(R.id.item5);
-        String itemName = item1.getText().toString();
-
-        CheckBox value1 = (CheckBox) findViewById(R.id.checkItem5);
-        String itemValue = value1.getText().toString();
-
-        editItem.putExtra("itemName", itemName);
-        editItem.putExtra("itemValue", itemValue);
-        editItem.putExtra("id", 5);
-        editItem.putExtra("userName", name);
-        editItem.putExtra("listCount", listCount);
-
-        startActivity(editItem);
-    }
-    public void editItem6(View view){
-        //get values from input
-        Intent intent = getIntent();
-        String name = intent.getStringExtra("userName");
-        int listCount = intent.getIntExtra("listCount", 0);
-
-        Intent editItem = new Intent(this, editItems.class);
-        TextView item = (TextView) findViewById(R.id.item6);
-        String itemName = item.getText().toString();
-
-        CheckBox value1 = (CheckBox) findViewById(R.id.checkItem6);
-        String itemValue = value1.getText().toString();
-
-        editItem.putExtra("itemName", itemName);
-        editItem.putExtra("itemValue", itemValue);
-        editItem.putExtra("id", 6);
-        editItem.putExtra("userName", name);
-        editItem.putExtra("listCount", listCount);
-
-        startActivity(editItem);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -186,11 +87,7 @@ public class listCloseup extends AppCompatActivity {
 
         String item5Name = intent.getStringExtra("item_name");
         String amount = intent.getStringExtra("item_amount");
-        TextView item55 = (TextView) findViewById(R.id.item5);
-        CheckBox itemAmount = (CheckBox) findViewById(R.id.checkItem5);
 
-            item55.setText(item5Name);
-            itemAmount.setText(amount);
 
         if(name != null) {
             TextView ownerName = (TextView) findViewById(R.id.listownerName2);
@@ -201,44 +98,25 @@ public class listCloseup extends AppCompatActivity {
             ownerName.setText(String.valueOf(name1));
         }
 
-        switch (id){
-            case 1:
-                TextView item1 = (TextView) findViewById(R.id.item1);
-                item1.setText(String.valueOf(itemName));
-                CheckBox value1 = (CheckBox) findViewById(R.id.checkItem1);
-                value1.setText(String.valueOf(itemValue));
-                break;
-            case 2:
-                TextView item2 = (TextView) findViewById(R.id.item2);
-                item2.setText(String.valueOf(itemName));
-                CheckBox value2 = (CheckBox) findViewById(R.id.checkItem2);
-                value2.setText(String.valueOf(itemValue));
-                break;
-            case 3:
-                TextView item3 = (TextView) findViewById(R.id.item3);
-                item3.setText(String.valueOf(itemName));
-                CheckBox value3 = (CheckBox) findViewById(R.id.checkItem3);
-                value3.setText(String.valueOf(itemValue));
-                break;
-            case 4:
-                TextView item4 = (TextView) findViewById(R.id.item4);
-                item4.setText(String.valueOf(itemName));
-                CheckBox value4 = (CheckBox) findViewById(R.id.checkItem4);
-                value4.setText(String.valueOf(itemValue));
-                break;
-            case 5:
-                TextView item5 = (TextView) findViewById(R.id.item5);
-                item5.setText(String.valueOf(itemName));
-                CheckBox value5 = (CheckBox) findViewById(R.id.checkItem5);
-                value5.setText(String.valueOf(itemValue));
-                break;
-            case 6:
-                TextView item6 = (TextView) findViewById(R.id.item6);
-                item6.setText(String.valueOf(itemName));
-                CheckBox value6 = (CheckBox) findViewById(R.id.checkItem6);
-                value6.setText(String.valueOf(itemValue));
-                break;
-        }
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        final ItemListAdapter adapter = new ItemListAdapter(new ItemListAdapter.ItemDiff());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        mItemViewModel = new ViewModelProvider(this).get(ItemViewModel.class);
+
+        mItemViewModel.getAllItems().observe(this, items -> {
+            //Update the cached copy of the items in the adapter.
+            adapter.submitList(items);
+        });
+
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener( view -> {
+            Intent newItem = new Intent(this, NewItemActivity.class);
+            startActivityForResult(newItem, NEW_WORD_ACTIVITY_REQUEST_CODE);
+        });
+
+
 
 
     }
