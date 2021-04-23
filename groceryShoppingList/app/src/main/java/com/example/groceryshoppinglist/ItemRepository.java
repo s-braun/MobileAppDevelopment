@@ -28,16 +28,16 @@ public class ItemRepository {
 
     // Room executes all queries on a separate thread.
     // Observed LiveData will notify the observer when the data has changed.
-    LiveData<List<Item>> getAllItems() {
+    public LiveData<List<Item>> getAllItems() {
         return mAllItems;
     }
 
-    LiveData<List<Item>> getItemsByCategory(String category) {
-        return getItemsByCategory(category);
+    public LiveData<List<Item>> getItemsByCategory(String category) {
+        return mItemDao.getItemsByCategory(category);
     }
 
-    LiveData<List<Item>> getItemsByCategoryAndList(String category, int listID) {
-        return getItemsByCategoryAndList(category, listID);
+    public LiveData<List<Item>> getItemsByCategoryAndList(String category, int listID) {
+        return mItemDao.getItemsByCategoryAndList(category, listID);
     }
 
     // You must call this on a non-UI thread or your app will throw an exception. Room ensures
