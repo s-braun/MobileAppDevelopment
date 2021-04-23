@@ -16,5 +16,5 @@ public interface ListDAO {
     void insert(Item item);
 
     @Delete
-    void delete(List user);
+    void delete(ListClass user);
 }

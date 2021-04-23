@@ -22,12 +22,15 @@ public class ListUser {
     private String mEmail;
 
     // Constructor
-    public ListUser(@NonNull Integer _listID, @NonNull String _email) {
-        this.mListID = _listID;
-        this.mEmail = _email;
+    public ListUser(@NonNull Integer mListID, @NonNull String mEmail) {
+        this.mListID = mListID;
+        this.mEmail = mEmail;
     }
 
     // Getters and setters
+    public Long getListUserID() { return this.mListUserID; }
+    public void setListUserID(Long _id) { this.mListUserID = _id; }
+
     public Integer getListID() {
         return this.mListID;
     }
