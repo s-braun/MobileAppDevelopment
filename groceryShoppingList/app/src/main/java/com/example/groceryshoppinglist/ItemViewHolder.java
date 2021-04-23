@@ -8,15 +8,15 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ItemViewHolder extends RecyclerView.ViewHolder {
-    private final TextView wordItemView;
+    private final TextView itemItemView;
 
     private ItemViewHolder(View itemView) {
         super(itemView);
-        wordItemView = itemView.findViewById(R.id.textView);
+        itemItemView = itemView.findViewById(R.id.textView);
     }
 
     public void bind(String text) {
-        wordItemView.setText(text);
+        itemItemView.setText(text);
     }
 
     static ItemViewHolder create(ViewGroup parent) {

@@ -13,13 +13,15 @@ public class ItemRepository {
     private LiveData<List<Item>> mAllItems;
     private LiveData<List<Item>> itemsByCategory;
     private LiveData<List<Item>> itemsByCategoryAndList;
+    private String category;
+    private int listID;
 
     ItemRepository(Application application) {
         GroceryDatabase db = GroceryDatabase.getDatabase(application);
         mItemDao = db.itemDAO();
         mAllItems = mItemDao.getAllItems();
-        /*itemsByCategory = mItemDao.getItemsByCategory(category);
-        itemsByCategoryAndList = mItemDao.getItemsByCategoryAndList(category, listID);*/
+        itemsByCategory = mItemDao.getItemsByCategory(category);
+        itemsByCategoryAndList = mItemDao.getItemsByCategoryAndList(category, listID);
     }
 
 
@@ -30,12 +32,12 @@ public class ItemRepository {
         return mAllItems;
     }
 
-    LiveData<List<Item>> getItemsByCategory() {
-        return itemsByCategory;
+    LiveData<List<Item>> getItemsByCategory(String category) {
+        return getItemsByCategory(category);
     }
 
-    LiveData<List<Item>> getItemsByCategoryAndList() {
-        return itemsByCategoryAndList;
+    LiveData<List<Item>> getItemsByCategoryAndList(String category, int listID) {
+        return getItemsByCategoryAndList(category, listID);
     }
 
     // You must call this on a non-UI thread or your app will throw an exception. Room ensures
