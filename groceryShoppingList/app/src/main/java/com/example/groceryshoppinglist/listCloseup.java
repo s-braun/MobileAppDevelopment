@@ -86,10 +86,20 @@ public class listCloseup extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        mItemViewModel = new ViewModelProvider(this,
-                ViewModelProvider.AndroidViewModelFactory.getInstance(this.getApplication())).get(ItemViewModel.class);
+        ItemViewModelFactory factory = new ItemViewModelFactory(this.getApplication(), "Produce", 1);
+        mItemViewModel = new ViewModelProvider(this, factory).get(ItemViewModel.class);
 
-        mItemViewModel.getAllItems().observe(this, items -> {
+        /*mItemViewModel.getAllItems().observe(this, items -> {
+            //Update the cached copy of the items in the adapter.
+            adapter.submitList(items);
+        });*/
+
+        /*mItemViewModel.getItemsByCategory("Produce").observe(this, items -> {
+            //Update the cached copy of the items in the adapter.
+            adapter.submitList(items);
+        });*/
+
+        mItemViewModel.getItemsByCategoryAndListID("Produce", 1).observe(this, items -> {
             //Update the cached copy of the items in the adapter.
             adapter.submitList(items);
         });

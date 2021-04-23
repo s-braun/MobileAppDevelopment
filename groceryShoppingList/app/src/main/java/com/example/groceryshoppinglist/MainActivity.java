@@ -16,8 +16,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RoomDatabase db = Room.databaseBuilder(getApplicationContext(),
-                RoomDatabase.class, "database-name").build();
+        GroceryDatabase db = Room.databaseBuilder(getApplicationContext(),
+                GroceryDatabase.class, "database-name").build();
 
         loginListener();
     }

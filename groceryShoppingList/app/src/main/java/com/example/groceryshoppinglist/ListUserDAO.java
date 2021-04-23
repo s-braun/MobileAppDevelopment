@@ -8,8 +8,6 @@ import androidx.room.OnConflictStrategy;
 @Dao
 public interface ListUserDAO {
 
-
-
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(Item item);
 

@@ -22,10 +22,10 @@ public class User {
     private String mName;
 
     // Constructor
-    public User(@NonNull String _email, @NonNull String _password, @NonNull String _name) {
-        this.mEmail = _email;
-        this.mPassword = _password;
-        this.mName = _name;
+    public User(@NonNull String mEmail, @NonNull String mPassword, @NonNull String mName) {
+        this.mEmail = mEmail;
+        this.mPassword = mPassword;
+        this.mName = mName;
     }
 
     // Getters and setters

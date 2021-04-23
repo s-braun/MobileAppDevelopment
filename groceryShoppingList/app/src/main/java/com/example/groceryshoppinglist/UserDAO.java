@@ -13,10 +13,10 @@ import java.util.List;
 public interface UserDAO {
 
     // Get all info about a user
-    @Query("SELECT * FROM user_table WHERE email = :_email LIMIT 1")
-    User getUserInfo(String _email);
+    @Query("SELECT * FROM user_table WHERE email = :email LIMIT 1")
+    User getUserInfo(String email);
 
-    @Query("SELECT email, name FROM user_table")
+    @Query("SELECT * FROM user_table")
     User[] getAllUsers();
 
     // Made this using this: https://learnsql.com/blog/how-to-join-3-tables-or-more-in-sql/
@@ -27,8 +27,8 @@ public interface UserDAO {
                 "ON list_table.list_ID = list_user_table.list_ID " +
             "JOIN user_table " +
                 "ON user_table.email = list_user_table.email " +
-            "WHERE user_table.email = :_email")
-    List<ListClass> getUserLists(String _email);
+            "WHERE user_table.email = :email")
+    List<ListClass> getUserLists(String email);
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(Item item);
