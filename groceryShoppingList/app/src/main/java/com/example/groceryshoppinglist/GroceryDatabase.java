@@ -57,7 +57,7 @@ public abstract class GroceryDatabase extends RoomDatabase {
                                 // If you want to start with more words, just add them.
                                 ItemDAO varItemDao = INSTANCE.itemDAO();
 
-                                Item fish = new Item("Fish", "2x", 2, "Fresh");
+                                Item fish = new Item(1, "Fish", "2x", 2, "Fresh");
                                 varItemDao.insert(fish);
                         });
                 }

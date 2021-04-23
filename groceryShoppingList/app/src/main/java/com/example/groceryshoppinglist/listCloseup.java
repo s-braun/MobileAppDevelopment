@@ -119,7 +119,7 @@ public class listCloseup extends AppCompatActivity {
 
         //change listID here
         if (requestCode == NEW_ITEM_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            Item item = new Item(data.getStringExtra("item"), data.getStringExtra("quantity"), 1, data.getStringExtra("category"));
+            Item item = new Item(0, data.getStringExtra("item"), data.getStringExtra("quantity"), 1, data.getStringExtra("category"));
             mItemViewModel.insert(item);
         } else {
             Toast.makeText(

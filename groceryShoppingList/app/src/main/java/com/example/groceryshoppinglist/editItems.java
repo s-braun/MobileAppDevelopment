@@ -39,7 +39,7 @@ public class editItems extends AppCompatActivity {
         int listID = intent.getIntExtra("listID", 0);
         String category = intent.getStringExtra("category");
 
-        ItemViewModelFactory factory = new ItemViewModelFactory(this.getApplication(), "Produce", 1);
+        ItemViewModelFactory factory = new ItemViewModelFactory(this.getApplication(), category, listID);
         mItemViewModel = new ViewModelProvider(this, factory).get(ItemViewModel.class);
 
 
