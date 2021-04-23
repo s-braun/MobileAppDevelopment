@@ -26,11 +26,16 @@ public class listCloseup extends AppCompatActivity {
         int listCount = intent.getIntExtra("listCount", 0);
         String name = intent.getStringExtra("userName");
 
+        /*Intent newItem = new Intent(this, addNewItem.class);
+        newItem.putExtra("userName", name);
+        newItem.putExtra("listCount", listCount);*/
+
         Intent newItem = new Intent(this, addNewItem.class);
         newItem.putExtra("userName", name);
         newItem.putExtra("listCount", listCount);
+        startActivityForResult(newItem, NEW_ITEM_ACTIVITY_REQUEST_CODE);
 
-        startActivity(newItem);
+        /*startActivity(newItem);*/
     }
 
     public void editItem(View view){
@@ -99,22 +104,24 @@ public class listCloseup extends AppCompatActivity {
             adapter.submitList(items);
         });*/
 
+        //change category and listID here
         mItemViewModel.getItemsByCategoryAndListID("Produce", 1).observe(this, items -> {
             //Update the cached copy of the items in the adapter.
             adapter.submitList(items);
         });
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+        /*FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener( view -> {
-            Intent newItem = new Intent(this, NewItemActivity.class);
+            Intent newItem = new Intent(this, addNewItem.class);
             startActivityForResult(newItem, NEW_ITEM_ACTIVITY_REQUEST_CODE);
-        });
+        });*/
 
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+        //change listID here
         if (requestCode == NEW_ITEM_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             Item item = new Item(System.currentTimeMillis(), data.getStringExtra("item"), data.getStringExtra("quantity"), 1, data.getStringExtra("category"));
             mItemViewModel.insert(item);
