@@ -28,4 +28,6 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
                 .inflate(R.layout.recyclerview_item, parent, false);
         return new ItemViewHolder(view);
     }
+
+
 }

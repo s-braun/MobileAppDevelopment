@@ -11,7 +11,7 @@ public class Item {
     @PrimaryKey(autoGenerate = true)
     @NonNull
     @ColumnInfo(name = "item_ID")
-    private Long mItemID;
+    private int mItemID;
 
     @NonNull
     @ColumnInfo(name = "item_Name")
@@ -30,8 +30,7 @@ public class Item {
     private String mCategory;
 
     // Constructor
-    public Item(@NonNull Long itemID, @NonNull String item, @NonNull String quantity, @NonNull Integer listID, @NonNull String category) {
-        this.mItemID = itemID;
+    public Item(@NonNull String item, @NonNull String quantity, @NonNull Integer listID, @NonNull String category) {
         this.mItem = item;
         this.mQuantity = quantity;
         this.mListID = listID;
@@ -53,6 +52,7 @@ public class Item {
     public Integer getListID(){return this.mListID;}
     public void setListID(Integer listID){this.mListID = listID;}
 
-    public Long getItemID(){return this.mItemID;}
+    public int getItemID(){return this.mItemID;}
+    public void setItemID(int itemID){this.mItemID = itemID;}
 
 }

@@ -11,12 +11,14 @@ import android.widget.TextView;
 
 public class editItems extends AppCompatActivity {
 
+    private ItemViewModel mItemViewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_items);
 
-        //get values from input
+        /*//get values from input
         Intent intent = getIntent();
         String name = intent.getStringExtra("userName");
         String itemName = intent.getStringExtra("itemName");
@@ -26,7 +28,14 @@ public class editItems extends AppCompatActivity {
 
         //set listOwner name
         TextView ownerName = (TextView) findViewById(R.id.listownerName4);
-        ownerName.setText(String.valueOf(name));
+        ownerName.setText(String.valueOf(name));*/
+
+        Intent intent = getIntent();
+        int itemID = intent.getIntExtra("itemID", 0);
+
+        String itemName = intent.getStringExtra("itemName");
+        String itemValue = intent.getStringExtra("itemValue");
+
 
         //make text boxes intake data
         final EditText editItem = findViewById(R.id.editItem);
@@ -41,12 +50,17 @@ public class editItems extends AppCompatActivity {
                 String editedName = editItem.getText().toString();
                 String editedAmount = editAmount.getText().toString();
 
+                System.out.println("ID in edit: " + itemID);
+
+                mItemViewModel.updateName(editedName, itemID);
+                mItemViewModel.updateQuantity(editedAmount, itemID);
+
                 Intent intent = new Intent (editItems.this, listCloseup.class);
-                intent.putExtra("edited_name", editedName);
+                /*intent.putExtra("edited_name", editedName);
                 intent.putExtra("edited_amount", editedAmount);
                 intent.putExtra("editedID", id);
                 intent.putExtra("userName", name);
-                intent.putExtra("listCount", listCount);
+                intent.putExtra("listCount", listCount);*/
                 startActivity(intent);
             }
         });

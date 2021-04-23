@@ -48,5 +48,17 @@ public class ItemRepository {
         });
     }
 
+    void updateName(String newName, int itemID){
+        GroceryDatabase.databaseWriteExecutor.execute(() -> {
+            mItemDao.updateName(newName, itemID);
+        });
+    }
+
+    void updateQuantity(String newQuantity, int itemID){
+        GroceryDatabase.databaseWriteExecutor.execute(() -> {
+            mItemDao.updateName(newQuantity, itemID);
+        });
+    }
+
 
 }
