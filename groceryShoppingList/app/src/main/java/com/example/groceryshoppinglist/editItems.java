@@ -1,6 +1,7 @@
 package com.example.groceryshoppinglist;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -35,6 +36,11 @@ public class editItems extends AppCompatActivity {
 
         String itemName = intent.getStringExtra("itemName");
         String itemValue = intent.getStringExtra("itemValue");
+        int listID = intent.getIntExtra("listID", 0);
+        String category = intent.getStringExtra("category");
+
+        ItemViewModelFactory factory = new ItemViewModelFactory(this.getApplication(), "Produce", 1);
+        mItemViewModel = new ViewModelProvider(this, factory).get(ItemViewModel.class);
 
 
         //make text boxes intake data
@@ -52,8 +58,10 @@ public class editItems extends AppCompatActivity {
 
                 System.out.println("ID in edit: " + itemID);
 
-                mItemViewModel.updateName(editedName, itemID);
-                mItemViewModel.updateQuantity(editedAmount, itemID);
+                Item item = new Item(itemID, editedName, editedAmount, listID, category);
+
+                mItemViewModel.updateItem(item);
+
 
                 Intent intent = new Intent (editItems.this, listCloseup.class);
                 /*intent.putExtra("edited_name", editedName);

@@ -37,8 +37,6 @@ public class ItemViewModel extends AndroidViewModel {
 
     public void insert(Item item) {mRepository.insert(item);}
 
-    public void updateName(String newName, int itemID) {mRepository.updateName(newName, itemID);}
-
-    public void updateQuantity(String newQuantity, int itemID) {mRepository.updateQuantity(newQuantity, itemID);}
+    public void updateItem(Item item) {mRepository.updateItem(item);}
 
 }

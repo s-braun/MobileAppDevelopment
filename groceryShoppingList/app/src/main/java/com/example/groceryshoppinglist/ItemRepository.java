@@ -3,7 +3,6 @@ package com.example.groceryshoppinglist;
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;
-import androidx.room.RoomDatabase;
 
 import java.util.List;
 
@@ -48,17 +47,12 @@ public class ItemRepository {
         });
     }
 
-    void updateName(String newName, int itemID){
+    void updateItem(Item item){
         GroceryDatabase.databaseWriteExecutor.execute(() -> {
-            mItemDao.updateName(newName, itemID);
+            mItemDao.updateItem(item);
         });
     }
 
-    void updateQuantity(String newQuantity, int itemID){
-        GroceryDatabase.databaseWriteExecutor.execute(() -> {
-            mItemDao.updateName(newQuantity, itemID);
-        });
-    }
 
 
 }

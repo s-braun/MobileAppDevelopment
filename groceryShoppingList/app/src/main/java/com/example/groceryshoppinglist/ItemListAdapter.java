@@ -34,6 +34,8 @@ public class ItemListAdapter extends ListAdapter<Item, ItemViewHolder> {
                 intent.putExtra("itemID", current.getItemID());
                 intent.putExtra("itemName", current.getItem());
                 intent.putExtra("itemValue", current.getQuantity());
+                intent.putExtra("listID", current.getListID());
+                intent.putExtra("category", current.getCategory());
                 context.startActivity(intent);
 
                 System.out.println(current.getItemID());

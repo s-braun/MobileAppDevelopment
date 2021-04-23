@@ -3,6 +3,7 @@ package com.example.groceryshoppinglist;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "item_table")
@@ -31,6 +32,15 @@ public class Item {
 
     // Constructor
     public Item(@NonNull String item, @NonNull String quantity, @NonNull Integer listID, @NonNull String category) {
+        this.mItem = item;
+        this.mQuantity = quantity;
+        this.mListID = listID;
+        this.mCategory = category;
+    }
+
+    @Ignore
+    public Item(@NonNull Integer itemID, @NonNull String item, @NonNull String quantity, @NonNull Integer listID, @NonNull String category) {
+        this.mItemID = itemID;
         this.mItem = item;
         this.mQuantity = quantity;
         this.mListID = listID;
