@@ -48,7 +48,7 @@ public class listCloseup extends AppCompatActivity {
         //get values from input
         Intent intent = getIntent();
         int listCount = intent.getIntExtra("listCount", 0);
-        String name = intent.getStringExtra("userName");
+        String name = intent.getStringExtra("ownerEmail");
 
         Intent backBtn = new Intent(this, Overview.class);
         backBtn.putExtra("listCount", listCount);
@@ -67,7 +67,8 @@ public class listCloseup extends AppCompatActivity {
 
         //get values from input
         Intent intent = getIntent();
-        String name = intent.getStringExtra("userName");
+        String name = intent.getStringExtra("ownerEmail");
+        int listID = intent.getIntExtra("listID", 0);
         String itemName = intent.getStringExtra("edited_name");
         String itemValue = intent.getStringExtra("edited_amount");
         int id = intent.getIntExtra("editedID", 0);
@@ -91,7 +92,7 @@ public class listCloseup extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        ItemViewModelFactory factory = new ItemViewModelFactory(this.getApplication(), "Produce", 1);
+        ItemViewModelFactory factory = new ItemViewModelFactory(this.getApplication(), "Produce", listID);
         mItemViewModel = new ViewModelProvider(this, factory).get(ItemViewModel.class);
 
         /*mItemViewModel.getAllItems().observe(this, items -> {
@@ -105,7 +106,7 @@ public class listCloseup extends AppCompatActivity {
         });*/
 
         //change category and listID here
-        mItemViewModel.getItemsByCategoryAndListID("Produce", 1).observe(this, items -> {
+        mItemViewModel.getItemsByCategoryAndListID("Produce", listID).observe(this, items -> {
             //Update the cached copy of the items in the adapter.
             adapter.submitList(items);
         });

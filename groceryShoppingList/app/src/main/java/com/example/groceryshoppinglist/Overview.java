@@ -153,7 +153,7 @@ public class Overview extends AppCompatActivity {
     private void openAddNewListActivity() {
         Intent intent = new Intent(this, addNewList.class);
         intent.putExtra("userName", username);
-        startActivity(intent);
+        startActivityForResult(intent, NEW_ITEM_ACTIVITY_REQUEST_CODE);
     }
 
 }
