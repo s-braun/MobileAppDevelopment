@@ -59,6 +59,10 @@ public abstract class GroceryDatabase extends RoomDatabase {
 
                                 Item fish = new Item(1, "Fish", "2x", 2, "Fresh");
                                 varItemDao.insert(fish);
+
+                                ListDAO varListDao = INSTANCE.listDAO();
+                                ListClass first = new ListClass("Sebastian");
+                                varListDao.insert(first);
                         });
                 }
         };
