@@ -3,7 +3,6 @@ package com.example.groceryshoppinglist;
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;
-import androidx.room.RoomDatabase;
 
 import java.util.List;
 
@@ -47,6 +46,19 @@ public class ItemRepository {
             mItemDao.insert(item);
         });
     }
+
+    void updateItem(Item item){
+        GroceryDatabase.databaseWriteExecutor.execute(() -> {
+            mItemDao.updateItem(item);
+        });
+    }
+
+    void updateItemValues(int id, String name, String amount, String category) {
+        GroceryDatabase.databaseWriteExecutor.execute(() -> {
+            mItemDao.updateItemValues(id, name, amount, category);
+        });
+    }
+
 
 
 }

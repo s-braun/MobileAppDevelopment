@@ -3,6 +3,7 @@ package com.example.groceryshoppinglist;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "item_table")
@@ -11,7 +12,7 @@ public class Item {
     @PrimaryKey(autoGenerate = true)
     @NonNull
     @ColumnInfo(name = "item_ID")
-    private Long mItemID;
+    private int mItemID;
 
     @NonNull
     @ColumnInfo(name = "item_Name")
@@ -30,7 +31,15 @@ public class Item {
     private String mCategory;
 
     // Constructor
-    public Item(@NonNull Long itemID, @NonNull String item, @NonNull String quantity, @NonNull Integer listID, @NonNull String category) {
+    /*public Item(@NonNull String item, @NonNull String quantity, @NonNull Integer listID, @NonNull String category) {
+        this.mItem = item;
+        this.mQuantity = quantity;
+        this.mListID = listID;
+        this.mCategory = category;
+    }*/
+
+
+    public Item(Integer itemID, @NonNull String item, @NonNull String quantity, @NonNull Integer listID, @NonNull String category) {
         this.mItemID = itemID;
         this.mItem = item;
         this.mQuantity = quantity;
@@ -53,6 +62,7 @@ public class Item {
     public Integer getListID(){return this.mListID;}
     public void setListID(Integer listID){this.mListID = listID;}
 
-    public Long getItemID(){return this.mItemID;}
+    public int getItemID(){return this.mItemID;}
+    public void setItemID(int itemID){this.mItemID = itemID;}
 
 }
