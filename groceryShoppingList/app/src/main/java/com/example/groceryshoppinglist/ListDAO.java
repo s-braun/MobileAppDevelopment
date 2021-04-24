@@ -13,8 +13,11 @@ import java.util.List;
 public interface ListDAO {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insert(Item item);
+    void insert(ListClass list);
 
     @Delete
-    void delete(ListClass user);
+    void delete(ListClass list);
+
+    @Query("SELECT * FROM list_table WHERE owner_email = :email ")
+    LiveData<List<ListClass>> getListsByOwner(String email);
 }

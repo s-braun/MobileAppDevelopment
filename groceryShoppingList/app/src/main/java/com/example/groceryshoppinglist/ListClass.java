@@ -11,21 +11,20 @@ public class ListClass {
     @PrimaryKey(autoGenerate = true)
     @NonNull
     @ColumnInfo(name = "list_ID")
-    private Long mListID;
+    private int mListID;
 
     @NonNull
     @ColumnInfo(name = "owner_email")
     private String mOwnerEmail;
 
     // Constructor
-    public ListClass(@NonNull Long mListID, @NonNull String mOwnerEmail) {
-        this.mListID = mListID;
+    public ListClass(@NonNull String mOwnerEmail) {
         this.mOwnerEmail = mOwnerEmail;
     }
 
     // Getters and setters
-    public Long getListID() { return this.mListID; }
-    public void setListID(Long _id) { this.mListID = _id; }
+    public int getListID() { return this.mListID; }
+    public void setListID(int _id) { this.mListID = _id; }
 
     public String getOwnerEmail() {
         return this.mOwnerEmail;

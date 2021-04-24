@@ -1,6 +1,9 @@
 package com.example.groceryshoppinglist;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -18,6 +21,8 @@ public class Overview extends AppCompatActivity {
     private String username;
     private int numOfLists;
     private Button[] buttonListsArray;
+    private ListViewModel mListViewModel;
+    public static final int NEW_ITEM_ACTIVITY_REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +46,39 @@ public class Overview extends AppCompatActivity {
             return;
         }
 
-        // Create the buttons for each list
+        /*// Create the buttons for each list
         createButtons();
         // Listen for clicks on each list
-        listListener();
+        listListener();*/
         // Add new list button listener
         addListListener();
+
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        final ListclassListAdapter adapter = new ListclassListAdapter(new ListclassListAdapter.ListDiff());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        ListViewModelFactory factory = new ListViewModelFactory(this.getApplication(), username);
+        mListViewModel = new ViewModelProvider(this, factory).get(ListViewModel.class);
+
+        mListViewModel.getListsByOwner(username).observe(this, items -> {
+            adapter.submitList(items);
+        });
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        //change listID here
+        if (requestCode == NEW_ITEM_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
+            ListClass list = new ListClass(data.getStringExtra("ownerEmail"));
+            mListViewModel.insert(list);
+        } else {
+            Toast.makeText(
+                    getApplicationContext(),
+                    R.string.empty_not_saved,
+                    Toast.LENGTH_LONG).show();
+        }
     }
 
 
@@ -55,7 +87,7 @@ public class Overview extends AppCompatActivity {
     -----------------------------------------------------
      */
 
-    private void createButtons() {
+    /*private void createButtons() {
         // Get linear layout in var to add buttons to
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.linearLayout);
 
@@ -100,13 +132,13 @@ public class Overview extends AppCompatActivity {
         intent.putExtra("listId", id);
         intent.putExtra("userName", username);
         startActivity(intent);
-    }
+    }*/
 
 
-    /*
-    Add New List Button
-    --------------------
-     */
+
+    /*Add New List Button
+    --------------------*/
+
 
     private void addListListener() {
         Button buttonAddNewList = findViewById(R.id.buttonAddNewList);
@@ -120,7 +152,6 @@ public class Overview extends AppCompatActivity {
 
     private void openAddNewListActivity() {
         Intent intent = new Intent(this, addNewList.class);
-        intent.putExtra("numOfLists", numOfLists);
         intent.putExtra("userName", username);
         startActivity(intent);
     }

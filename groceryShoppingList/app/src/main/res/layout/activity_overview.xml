@@ -38,6 +38,16 @@
         app:layout_constraintTop_toTopOf="@+id/listOwnerName"
         tools:srcCompat="@tools:sample/avatars" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="408dp"
+        android:layout_height="504dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAddNewList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listOwnerName"
+        tools:listitem="@layout/recyclerview_list"/>
+
     <Button
         android:id="@+id/buttonAddNewList"
         android:layout_width="401dp"

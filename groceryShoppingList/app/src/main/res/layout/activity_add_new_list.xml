@@ -86,7 +86,6 @@
         android:layout_width="178dp"
         android:layout_height="65dp"
         android:drawableLeft="?android:attr/textCheckMarkInverse"
-        android:onClick="create"
         android:text="Create"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
