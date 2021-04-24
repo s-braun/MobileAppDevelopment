@@ -40,6 +40,7 @@ public class addNewItem extends AppCompatActivity implements AdapterView.OnItemS
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_item);
+
         //populate dropdown menu
         Spinner NumSpinner = (Spinner) findViewById(R.id.CategoriesSpn);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
