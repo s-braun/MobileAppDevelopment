@@ -53,6 +53,12 @@ public class ItemRepository {
         });
     }
 
+    void updateItemValues(int id, String name, String amount, String category) {
+        GroceryDatabase.databaseWriteExecutor.execute(() -> {
+            mItemDao.updateItemValues(id, name, amount, category);
+        });
+    }
+
 
 
 }

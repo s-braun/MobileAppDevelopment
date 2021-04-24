@@ -15,32 +15,25 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class addNewItem extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class addNewItem extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private EditText mEditItemView;
     private EditText mEditQuantity;
 
     //intake spinner data
-        public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-            final Spinner CategorySpinner = (Spinner) findViewById(R.id.CategoriesSpn);
-            CategorySpinner.setOnItemSelectedListener(this);
-            String category = parent.getItemAtPosition(pos).toString();
-            Intent move = new Intent (this, addNewItem.class);
-            move.putExtra("item_category", category);
-            return;
-        }
+    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+        final Spinner CategorySpinner = (Spinner) findViewById(R.id.CategoriesSpn);
+        CategorySpinner.setOnItemSelectedListener(this);
+        String category = parent.getItemAtPosition(pos).toString();
+        Intent move = new Intent (this, addNewItem.class);
+        move.putExtra("item_category", category);
+        return;
+    }
 
 
-        public void onNothingSelected(AdapterView<?> parent) {
+    public void onNothingSelected(AdapterView<?> parent) {
 
-        }
-
-    /*public void cancelNewItem(View view){
-        Intent cancel = new Intent(this, listCloseup.class);
-
-        startActivity(cancel);
-    }*/
-
+    }
 
 
     @Override
@@ -89,19 +82,6 @@ public class addNewItem extends AppCompatActivity implements AdapterView.OnItemS
                 }
                 finish();
 
-                /*//make text boxes intake data
-                final EditText itemName = findViewById(R.id.itemName);
-                final EditText itemAmount = findViewById(R.id.ItemAmount);
-                String item = itemName.getText().toString();
-                String amount = itemAmount.getText().toString();
-
-                Intent intent = new Intent (addNewItem.this, listCloseup.class);
-                intent.putExtra("item_name", item);
-                intent.putExtra("item_amount", amount);
-                intent.putExtra("item_category", category);
-                intent.putExtra("userName", name);
-                intent.putExtra("listCount", listCount);
-                startActivity(intent);*/
             }
         });
 
@@ -115,9 +95,6 @@ public class addNewItem extends AppCompatActivity implements AdapterView.OnItemS
                 startActivity(intent);
             }
         });
-       // String[] choiceNames={"Categories","Produce","Dairy","Dry Goods","Meat","Frozen", "Bakery"};
 
-        //ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,choiceNames);
-        //aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
     }
 }

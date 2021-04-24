@@ -24,6 +24,9 @@ public interface ItemDAO {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(Item item);
 
+    @Query("UPDATE item_table SET item_Name = :newName, Quantity = :newQuantity, Category = :newCategory WHERE item_ID = :itemID")
+    void updateItemValues(int itemID, String newName, String newQuantity, String newCategory);
+
     @Update(onConflict = OnConflictStrategy.IGNORE)
     void updateItem(Item item);
 
