@@ -10,22 +10,24 @@ import java.util.List;
 public class UserViewModel extends AndroidViewModel {
 
     private UserRepository mRepository;
+    private String mEmail;
 
-    private final LiveData<List<User>> mUserInfo;
+    private final LiveData<User> mUserInfo;
     private final LiveData<List<User>> mAllUsers;
     private final LiveData<List<ListClass>> mUserLists;
 
-    public UserViewModel (Application application) {
+    public UserViewModel (Application application, String email) {
         super(application);
         mRepository = new UserRepository(application);
+        mEmail = email;
 
-        mUserInfo = mRepository.getmUserInfo();
+        mUserInfo = mRepository.getmUserInfo(email);
         mAllUsers = mRepository.getmAllUsers();
-        mUserLists = mRepository.getmUserLists();
+        mUserLists = mRepository.getmUserLists(email);
     }
 
-    LiveData<List<User>> getmUserInfo() {
-        return mUserInfo;
+    LiveData<User> getmUserInfo(String email) {
+        return mRepository.getmUserInfo(email);
     }
 
     LiveData<List<User>> getmAllUsers() {

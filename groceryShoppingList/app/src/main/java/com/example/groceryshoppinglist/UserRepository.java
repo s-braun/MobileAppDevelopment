@@ -9,7 +9,7 @@ import java.util.List;
 public class UserRepository {
 
     private UserDAO mUserDao;
-    private LiveData<List<User>> mUserInfo;
+    private LiveData<User> mUserInfo;
     private LiveData<List<User>> mAllUsers;
     private LiveData<List<ListClass>> mUserLists;
 
@@ -27,11 +27,11 @@ public class UserRepository {
         return mAllUsers;
     }
 
-    LiveData<List<User>> getmUserInfo() {
-        return mUserInfo;
+    LiveData<User> getmUserInfo(String email) {
+        return mUserDao.getUserInfo(email);
     }
 
-    LiveData<List<ListClass>> getmUserLists() {
+    LiveData<List<ListClass>> getmUserLists(String email) {
         return mUserLists;
     }
 

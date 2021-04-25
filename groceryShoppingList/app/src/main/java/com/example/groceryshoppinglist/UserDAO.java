@@ -15,7 +15,7 @@ public interface UserDAO {
 
     // Get all info about a user
     @Query("SELECT * FROM user_table WHERE email = :email LIMIT 1")
-    LiveData<List<User>> getUserInfo(String email);
+    LiveData<User> getUserInfo(String email);
 
     @Query("SELECT * FROM user_table")
     LiveData<List<User>> getAllUsers();
