@@ -55,14 +55,14 @@ public abstract class GroceryDatabase extends RoomDatabase {
                         databaseWriteExecutor.execute(() -> {
                                 // Populate the database in the background.
                                 // If you want to start with more words, just add them.
-                                ItemDAO varItemDao = INSTANCE.itemDAO();
+                                /*ItemDAO varItemDao = INSTANCE.itemDAO();
 
                                 Item fish = new Item(1, "Fish", "2x", 2, "Fresh");
                                 varItemDao.insert(fish);
 
                                 ListDAO varListDao = INSTANCE.listDAO();
                                 ListClass first = new ListClass("Sebastian");
-                                varListDao.insert(first);
+                                varListDao.insert(first);*/
                         });
                 }
         };

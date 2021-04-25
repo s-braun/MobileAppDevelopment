@@ -88,7 +88,7 @@ public class listCloseup extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        ItemViewModelFactory factory = new ItemViewModelFactory(this.getApplication(), "Produce", listID);
+        ItemViewModelFactory factory = new ItemViewModelFactory(this.getApplication(), listID);
         mItemViewModel = new ViewModelProvider(this, factory).get(ItemViewModel.class);
 
         /*mItemViewModel.getAllItems().observe(this, items -> {

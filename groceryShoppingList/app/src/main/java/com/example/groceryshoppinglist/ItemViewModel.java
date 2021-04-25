@@ -16,13 +16,13 @@ public class ItemViewModel extends AndroidViewModel {
     private LiveData<List<Item>> mItemsByListID;
     private LiveData<List<Item>> mItemsByCategoryAndListID;
 
-    public ItemViewModel (@NonNull Application application, String category, int listID){
+    public ItemViewModel (@NonNull Application application, int listID){
         super(application);
 
         mRepository = new ItemRepository(application);
         mAllItems = mRepository.getAllItems();
         mItemsByListID = mRepository.getItemsByListID(listID);
-        mItemsByCategoryAndListID = mRepository.getItemsByCategoryAndList(category, listID);
+       /* mItemsByCategoryAndListID = mRepository.getItemsByCategoryAndList(category, listID);*/
     }
 
     LiveData<List<Item>> getAllItems() {return mAllItems;}

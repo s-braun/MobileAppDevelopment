@@ -54,7 +54,7 @@ public class editItems extends AppCompatActivity {
         editCategory.setText(String.valueOf(category));
 
 
-        ItemViewModelFactory factory = new ItemViewModelFactory(this.getApplication(), category, listID);
+        ItemViewModelFactory factory = new ItemViewModelFactory(this.getApplication(), listID);
         mItemViewModel = new ViewModelProvider(this, factory).get(ItemViewModel.class);
 
 
