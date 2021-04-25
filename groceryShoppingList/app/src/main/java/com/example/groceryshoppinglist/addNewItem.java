@@ -19,6 +19,7 @@ public class addNewItem extends AppCompatActivity implements AdapterView.OnItemS
 
     private EditText mEditItemView;
     private EditText mEditQuantity;
+    private int listID;
 
     //intake spinner data
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
@@ -50,12 +51,13 @@ public class addNewItem extends AppCompatActivity implements AdapterView.OnItemS
 
         String category = getIntent().getStringExtra("item_category");
 
-        //get values from input
+        // get values from intent!
         Intent intent = getIntent();
         String name = intent.getStringExtra("userName");
         int listCount = intent.getIntExtra("listCount", 0);
-        int id = intent.getIntExtra("id", 0);
+        listID = intent.getIntExtra("listID", 0);
 
+        // Set the owner name at the top of screen
         TextView listOwnerName = (TextView)findViewById(R.id.listownerName5);
         listOwnerName.setText(name);
 
@@ -79,10 +81,10 @@ public class addNewItem extends AppCompatActivity implements AdapterView.OnItemS
                     replyIntent.putExtra("item", item);
                     replyIntent.putExtra("quantity", quantity);
                     replyIntent.putExtra("category", category);
+                    replyIntent.putExtra("listIDFromAdd", listID);
                     setResult(RESULT_OK, replyIntent);
                 }
                 finish();
-
             }
         });
 

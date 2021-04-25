@@ -26,16 +26,14 @@ public class listCloseup extends AppCompatActivity {
         int listCount = intent.getIntExtra("listCount", 0);
         String name = intent.getStringExtra("userName");
 
-        /*Intent newItem = new Intent(this, addNewItem.class);
-        newItem.putExtra("userName", name);
-        newItem.putExtra("listCount", listCount);*/
-
         Intent newItem = new Intent(this, addNewItem.class);
         newItem.putExtra("userName", name);
         newItem.putExtra("listCount", listCount);
-        startActivityForResult(newItem, NEW_ITEM_ACTIVITY_REQUEST_CODE);
 
-        /*startActivity(newItem);*/
+        int listID = intent.getIntExtra("listID", 0);
+        newItem.putExtra("listID", listID);
+
+        startActivityForResult(newItem, NEW_ITEM_ACTIVITY_REQUEST_CODE);
     }
 
     public void editItem(View view){
@@ -120,7 +118,7 @@ public class listCloseup extends AppCompatActivity {
 
         //change listID here
         if (requestCode == NEW_ITEM_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            Item item = new Item(0, data.getStringExtra("item"), data.getStringExtra("quantity"), 1, data.getStringExtra("category"));
+            Item item = new Item(0, data.getStringExtra("item"), data.getStringExtra("quantity"), data.getIntExtra("listIDFromAdd", 0), data.getStringExtra("category"));
             mItemViewModel.insert(item);
         } else {
             Toast.makeText(
