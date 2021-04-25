@@ -19,17 +19,13 @@ public class listCloseup extends AppCompatActivity {
     public static final int NEW_ITEM_ACTIVITY_REQUEST_CODE = 1;
 
 
-
     public void addNewItem(View view){
         //get values from input
         Intent intent = getIntent();
-        int listCount = intent.getIntExtra("listCount", 0);
         String name = intent.getStringExtra("userName");
 
         Intent newItem = new Intent(this, addNewItem.class);
         newItem.putExtra("userName", name);
-        newItem.putExtra("listCount", listCount);
-
         int listID = intent.getIntExtra("listID", 0);
         newItem.putExtra("listID", listID);
 
@@ -45,16 +41,13 @@ public class listCloseup extends AppCompatActivity {
     public void backBtn(View view){
         //get values from input
         Intent intent = getIntent();
-        int listCount = intent.getIntExtra("listCount", 0);
         String name = intent.getStringExtra("ownerEmail");
 
         Intent backBtn = new Intent(this, Overview.class);
-        backBtn.putExtra("listCount", listCount);
         backBtn.putExtra("username", name);
 
         startActivity(backBtn);
     }
-
 
 
 
@@ -67,13 +60,18 @@ public class listCloseup extends AppCompatActivity {
         Intent intent = getIntent();
         String name = intent.getStringExtra("ownerEmail");
         int listID = intent.getIntExtra("listID", 0);
+        /*
         String itemName = intent.getStringExtra("edited_name");
         String itemValue = intent.getStringExtra("edited_amount");
         int id = intent.getIntExtra("editedID", 0);
 
 
+
+
         String item5Name = intent.getStringExtra("item_name");
         String amount = intent.getStringExtra("item_amount");
+        */
+
 
 
         if(name != null) {

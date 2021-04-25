@@ -54,7 +54,6 @@ public class addNewItem extends AppCompatActivity implements AdapterView.OnItemS
         // get values from intent!
         Intent intent = getIntent();
         String name = intent.getStringExtra("userName");
-        int listCount = intent.getIntExtra("listCount", 0);
         listID = intent.getIntExtra("listID", 0);
 
         // Set the owner name at the top of screen
@@ -94,7 +93,6 @@ public class addNewItem extends AppCompatActivity implements AdapterView.OnItemS
             public void onClick(View v){
                 Intent intent = new Intent (addNewItem.this, listCloseup.class);
                 intent.putExtra("userName", name);
-                intent.putExtra("listCount", listCount);
                 startActivity(intent);
             }
         });

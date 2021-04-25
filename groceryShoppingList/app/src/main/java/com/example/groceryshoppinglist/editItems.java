@@ -15,6 +15,7 @@ import android.widget.TextView;
 public class editItems extends AppCompatActivity {
 
     private ItemViewModel mItemViewModel;
+    private int listID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,6 @@ public class editItems extends AppCompatActivity {
         String itemName = intent.getStringExtra("itemName");
         String itemValue = intent.getStringExtra("itemValue");
         int id = intent.getIntExtra("id", 0);
-        int listCount = intent.getIntExtra("listCount", 0);
 
         //set listOwner name
         TextView ownerName = (TextView) findViewById(R.id.listownerName4);
@@ -44,7 +44,7 @@ public class editItems extends AppCompatActivity {
         // Get current value
         String itemName = intent.getStringExtra("itemName");
         String itemValue = intent.getStringExtra("itemValue");
-        int listID = intent.getIntExtra("listID", 0);
+        listID = intent.getIntExtra("listID", 0);
         String category = intent.getStringExtra("category");
 
         // Set value to the intent value
@@ -72,6 +72,7 @@ public class editItems extends AppCompatActivity {
                 mItemViewModel.updateItemValues(itemID, editedName, editedAmount, editedCategory);
 
                 Intent intent = new Intent (editItems.this, listCloseup.class);
+                intent.putExtra("listID", listID);
                 startActivity(intent);
             }
         });
