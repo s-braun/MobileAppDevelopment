@@ -81,6 +81,7 @@ public class addNewItem extends AppCompatActivity implements AdapterView.OnItemS
                     replyIntent.putExtra("quantity", quantity);
                     replyIntent.putExtra("category", category);
                     replyIntent.putExtra("listIDFromAdd", listID);
+                    replyIntent.putExtra("ownerEmail", name);
                     setResult(RESULT_OK, replyIntent);
                 }
                 finish();
@@ -92,7 +93,8 @@ public class addNewItem extends AppCompatActivity implements AdapterView.OnItemS
         CancelButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
                 Intent intent = new Intent (addNewItem.this, listCloseup.class);
-                intent.putExtra("userName", name);
+                intent.putExtra("ownerEmail", name);
+                intent.putExtra("listID", listID);
                 startActivity(intent);
             }
         });

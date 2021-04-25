@@ -22,7 +22,7 @@ public class listCloseup extends AppCompatActivity {
     public void addNewItem(View view){
         //get values from input
         Intent intent = getIntent();
-        String name = intent.getStringExtra("userName");
+        String name = intent.getStringExtra("ownerEmail");
 
         Intent newItem = new Intent(this, addNewItem.class);
         newItem.putExtra("userName", name);
@@ -84,7 +84,7 @@ public class listCloseup extends AppCompatActivity {
         }
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        final ItemListAdapter adapter = new ItemListAdapter(new ItemListAdapter.ItemDiff());
+        final ItemListAdapter adapter = new ItemListAdapter(new ItemListAdapter.ItemDiff(), name);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

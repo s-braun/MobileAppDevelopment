@@ -29,11 +29,10 @@ public class editItems extends AppCompatActivity {
         String itemValue = intent.getStringExtra("itemValue");
         int id = intent.getIntExtra("id", 0);
 
-        //set listOwner name
-        TextView ownerName = (TextView) findViewById(R.id.listownerName4);
-        ownerName.setText(String.valueOf(name));*/
+        */
 
         Intent intent = getIntent();
+        String ownerName = intent.getStringExtra("ownerName");
         int itemID = intent.getIntExtra("itemID", 0);
         String itemName = intent.getStringExtra("itemName");
         String itemValue = intent.getStringExtra("itemValue");
@@ -45,6 +44,9 @@ public class editItems extends AppCompatActivity {
         final EditText editAmount = findViewById(R.id.editItemAmount);
         final EditText editCategory = findViewById(R.id.editItemCategory);
 
+        //set listOwner name
+        TextView itemOwnerName = (TextView) findViewById(R.id.listownerName4);
+        itemOwnerName.setText(String.valueOf(ownerName));
 
         // Set value to the intent value
         editItem.setText(String.valueOf(itemName));
@@ -54,6 +56,8 @@ public class editItems extends AppCompatActivity {
 
         ItemViewModelFactory factory = new ItemViewModelFactory(this.getApplication(), category, listID);
         mItemViewModel = new ViewModelProvider(this, factory).get(ItemViewModel.class);
+
+
 
 
         //configure edit items button
@@ -71,6 +75,7 @@ public class editItems extends AppCompatActivity {
 
                 Intent intent = new Intent (editItems.this, listCloseup.class);
                 intent.putExtra("listID", listID);
+                intent.putExtra("ownerEmail", ownerName);
                 startActivity(intent);
             }
         });
@@ -81,6 +86,7 @@ public class editItems extends AppCompatActivity {
             public void onClick(View v){
                 Intent intent = new Intent (editItems.this, listCloseup.class);
                 intent.putExtra("listID", listID);
+                intent.putExtra("ownerEmail", ownerName);
                 startActivity(intent);
             }
         });
