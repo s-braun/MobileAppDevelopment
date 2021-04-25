@@ -1,5 +1,6 @@
 package com.example.groceryshoppinglist;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -14,10 +15,10 @@ public interface UserDAO {
 
     // Get all info about a user
     @Query("SELECT * FROM user_table WHERE email = :email LIMIT 1")
-    User getUserInfo(String email);
+    LiveData<User> getUserInfo(String email);
 
     @Query("SELECT * FROM user_table")
-    User[] getAllUsers();
+    LiveData<List<User>> getAllUsers();
 
     // Made this using this: https://learnsql.com/blog/how-to-join-3-tables-or-more-in-sql/
     // Joins the user, listuser, and list entity to get a user's lists
@@ -28,10 +29,10 @@ public interface UserDAO {
             "JOIN user_table " +
                 "ON user_table.email = list_user_table.email " +
             "WHERE user_table.email = :email")
-    List<ListClass> getUserLists(String email);
+    LiveData<List<ListClass>> getUserLists(String email);
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insert(Item item);
+    void insert(User user);
 
     @Delete
     void delete(User user);

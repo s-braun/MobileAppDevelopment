@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -13,8 +14,11 @@ import androidx.recyclerview.widget.ListAdapter;
 
 public class ItemListAdapter extends ListAdapter<Item, ItemViewHolder> {
 
-    public ItemListAdapter(@NonNull DiffUtil.ItemCallback<Item> diffCallback) {
+    String ownerName;
+
+    public ItemListAdapter(@NonNull DiffUtil.ItemCallback<Item> diffCallback, String name) {
         super(diffCallback);
+        ownerName = name;
     }
 
     @Override
@@ -31,6 +35,7 @@ public class ItemListAdapter extends ListAdapter<Item, ItemViewHolder> {
             public void onClick(View v) {
                 Context context = v.getContext();
                 Intent intent = new Intent(context, editItems.class);
+                intent.putExtra("ownerName", ownerName);
                 intent.putExtra("itemID", current.getItemID());
                 intent.putExtra("itemName", current.getItem());
                 intent.putExtra("itemValue", current.getQuantity());

@@ -15,6 +15,7 @@ import android.widget.TextView;
 public class editItems extends AppCompatActivity {
 
     private ItemViewModel mItemViewModel;
+    private int listID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,29 +24,29 @@ public class editItems extends AppCompatActivity {
 
         /*//get values from input
         Intent intent = getIntent();
-        String name = intent.getStringExtra("userName");
+
         String itemName = intent.getStringExtra("itemName");
         String itemValue = intent.getStringExtra("itemValue");
         int id = intent.getIntExtra("id", 0);
-        int listCount = intent.getIntExtra("listCount", 0);
 
-        //set listOwner name
-        TextView ownerName = (TextView) findViewById(R.id.listownerName4);
-        ownerName.setText(String.valueOf(name));*/
+        */
 
         Intent intent = getIntent();
+        String ownerName = intent.getStringExtra("ownerName");
         int itemID = intent.getIntExtra("itemID", 0);
+        String itemName = intent.getStringExtra("itemName");
+        String itemValue = intent.getStringExtra("itemValue");
+        listID = intent.getIntExtra("listID", 0);
+        String category = intent.getStringExtra("category");
 
         //make text boxes intake data
         final EditText editItem = findViewById(R.id.editItem);
         final EditText editAmount = findViewById(R.id.editItemAmount);
         final EditText editCategory = findViewById(R.id.editItemCategory);
 
-        // Get current value
-        String itemName = intent.getStringExtra("itemName");
-        String itemValue = intent.getStringExtra("itemValue");
-        int listID = intent.getIntExtra("listID", 0);
-        String category = intent.getStringExtra("category");
+        //set listOwner name
+        TextView itemOwnerName = (TextView) findViewById(R.id.listownerName4);
+        itemOwnerName.setText(String.valueOf(ownerName));
 
         // Set value to the intent value
         editItem.setText(String.valueOf(itemName));
@@ -55,6 +56,7 @@ public class editItems extends AppCompatActivity {
 
         ItemViewModelFactory factory = new ItemViewModelFactory(this.getApplication(), category, listID);
         mItemViewModel = new ViewModelProvider(this, factory).get(ItemViewModel.class);
+
 
 
 
@@ -72,6 +74,8 @@ public class editItems extends AppCompatActivity {
                 mItemViewModel.updateItemValues(itemID, editedName, editedAmount, editedCategory);
 
                 Intent intent = new Intent (editItems.this, listCloseup.class);
+                intent.putExtra("listID", listID);
+                intent.putExtra("ownerEmail", ownerName);
                 startActivity(intent);
             }
         });
@@ -81,6 +85,8 @@ public class editItems extends AppCompatActivity {
         CancelButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
                 Intent intent = new Intent (editItems.this, listCloseup.class);
+                intent.putExtra("listID", listID);
+                intent.putExtra("ownerEmail", ownerName);
                 startActivity(intent);
             }
         });

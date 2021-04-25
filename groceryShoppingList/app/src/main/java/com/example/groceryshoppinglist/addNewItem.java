@@ -19,6 +19,7 @@ public class addNewItem extends AppCompatActivity implements AdapterView.OnItemS
 
     private EditText mEditItemView;
     private EditText mEditQuantity;
+    private int listID;
 
     //intake spinner data
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
@@ -40,6 +41,7 @@ public class addNewItem extends AppCompatActivity implements AdapterView.OnItemS
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_item);
+
         //populate dropdown menu
         Spinner NumSpinner = (Spinner) findViewById(R.id.CategoriesSpn);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -49,12 +51,12 @@ public class addNewItem extends AppCompatActivity implements AdapterView.OnItemS
 
         String category = getIntent().getStringExtra("item_category");
 
-        //get values from input
+        // get values from intent!
         Intent intent = getIntent();
         String name = intent.getStringExtra("userName");
-        int listCount = intent.getIntExtra("listCount", 0);
-        int id = intent.getIntExtra("id", 0);
+        listID = intent.getIntExtra("listID", 0);
 
+        // Set the owner name at the top of screen
         TextView listOwnerName = (TextView)findViewById(R.id.listownerName5);
         listOwnerName.setText(name);
 
@@ -78,10 +80,11 @@ public class addNewItem extends AppCompatActivity implements AdapterView.OnItemS
                     replyIntent.putExtra("item", item);
                     replyIntent.putExtra("quantity", quantity);
                     replyIntent.putExtra("category", category);
+                    replyIntent.putExtra("listIDFromAdd", listID);
+                    replyIntent.putExtra("ownerEmail", name);
                     setResult(RESULT_OK, replyIntent);
                 }
                 finish();
-
             }
         });
 
@@ -90,8 +93,8 @@ public class addNewItem extends AppCompatActivity implements AdapterView.OnItemS
         CancelButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
                 Intent intent = new Intent (addNewItem.this, listCloseup.class);
-                intent.putExtra("userName", name);
-                intent.putExtra("listCount", listCount);
+                intent.putExtra("ownerEmail", name);
+                intent.putExtra("listID", listID);
                 startActivity(intent);
             }
         });
