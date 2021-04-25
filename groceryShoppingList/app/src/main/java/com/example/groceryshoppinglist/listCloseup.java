@@ -32,11 +32,6 @@ public class listCloseup extends AppCompatActivity {
         startActivityForResult(newItem, NEW_ITEM_ACTIVITY_REQUEST_CODE);
     }
 
-    public void editItem(View view){
-        Intent editItem = new Intent(this, editItems.class);
-
-        startActivity(editItem);
-    }
 
     public void backBtn(View view){
         //get values from input
@@ -60,19 +55,6 @@ public class listCloseup extends AppCompatActivity {
         Intent intent = getIntent();
         String name = intent.getStringExtra("ownerEmail");
         int listID = intent.getIntExtra("listID", 0);
-        /*
-        String itemName = intent.getStringExtra("edited_name");
-        String itemValue = intent.getStringExtra("edited_amount");
-        int id = intent.getIntExtra("editedID", 0);
-
-
-
-
-        String item5Name = intent.getStringExtra("item_name");
-        String amount = intent.getStringExtra("item_amount");
-        */
-
-
 
         if(name != null) {
             TextView ownerName = (TextView) findViewById(R.id.listownerName2);
@@ -91,23 +73,11 @@ public class listCloseup extends AppCompatActivity {
         ItemViewModelFactory factory = new ItemViewModelFactory(this.getApplication(), listID);
         mItemViewModel = new ViewModelProvider(this, factory).get(ItemViewModel.class);
 
-        /*mItemViewModel.getAllItems().observe(this, items -> {
-            //Update the cached copy of the items in the adapter.
-            adapter.submitList(items);
-        });*/
 
-        /*mItemViewModel.getItemsByCategory("Produce").observe(this, items -> {
-            //Update the cached copy of the items in the adapter.
-            adapter.submitList(items);
-        });*/
-
-        //change category and listID here
         mItemViewModel.getItemsByListID(listID).observe(this, items -> {
             //Update the cached copy of the items in the adapter.
             adapter.submitList(items);
         });
-
-
 
     }
 

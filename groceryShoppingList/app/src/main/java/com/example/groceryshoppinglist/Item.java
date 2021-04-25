@@ -31,14 +31,6 @@ public class Item {
     private String mCategory;
 
     // Constructor
-    /*public Item(@NonNull String item, @NonNull String quantity, @NonNull Integer listID, @NonNull String category) {
-        this.mItem = item;
-        this.mQuantity = quantity;
-        this.mListID = listID;
-        this.mCategory = category;
-    }*/
-
-
     public Item(Integer itemID, @NonNull String item, @NonNull String quantity, @NonNull Integer listID, @NonNull String category) {
         this.mItemID = itemID;
         this.mItem = item;
