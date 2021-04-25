@@ -29,7 +29,7 @@ public class ItemListAdapter extends ListAdapter<Item, ItemViewHolder> {
     @Override
     public void onBindViewHolder(ItemViewHolder holder, int position) {
         Item current = getItem(position);
-        holder.bind(current.getItemName(), current.getQuantity());
+        holder.bind(current.getItemName(), current.getQuantity(), current.getCategory());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

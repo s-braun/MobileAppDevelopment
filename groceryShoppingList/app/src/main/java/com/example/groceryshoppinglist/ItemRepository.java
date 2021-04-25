@@ -10,7 +10,7 @@ public class ItemRepository {
 
     private ItemDAO mItemDao;
     private LiveData<List<Item>> mAllItems;
-    private LiveData<List<Item>> itemsByCategory;
+    private LiveData<List<Item>> itemsByListID;
     private LiveData<List<Item>> itemsByCategoryAndList;
     private String category;
     private int listID;
@@ -19,7 +19,7 @@ public class ItemRepository {
         GroceryDatabase db = GroceryDatabase.getDatabase(application);
         mItemDao = db.itemDAO();
         mAllItems = mItemDao.getAllItems();
-        itemsByCategory = mItemDao.getItemsByCategory(category);
+        itemsByListID = mItemDao.getItemsByListID(listID);
         itemsByCategoryAndList = mItemDao.getItemsByCategoryAndList(category, listID);
     }
 
@@ -31,8 +31,8 @@ public class ItemRepository {
         return mAllItems;
     }
 
-    public LiveData<List<Item>> getItemsByCategory(String category) {
-        return mItemDao.getItemsByCategory(category);
+    public LiveData<List<Item>> getItemsByListID(Integer listID) {
+        return mItemDao.getItemsByListID(listID);
     }
 
     public LiveData<List<Item>> getItemsByCategoryAndList(String category, int listID) {

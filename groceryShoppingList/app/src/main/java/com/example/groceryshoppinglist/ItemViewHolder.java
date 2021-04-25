@@ -11,16 +11,19 @@ import androidx.recyclerview.widget.RecyclerView;
 public class ItemViewHolder extends RecyclerView.ViewHolder {
     private final TextView itemItemView;
     private final CheckBox itemValue;
+    private final TextView itemCategory;
 
     private ItemViewHolder(View itemView) {
         super(itemView);
         itemItemView = itemView.findViewById(R.id.textView);
         itemValue = itemView.findViewById(R.id.checkBox);
+        itemCategory = itemView.findViewById(R.id.itemCategory);
     }
 
-    public void bind(String name, String value) {
+    public void bind(String name, String value, String category) {
         itemItemView.setText(name);
         itemValue.setText(value);
+        itemCategory.setText(category);
     }
 
     static ItemViewHolder create(ViewGroup parent) {

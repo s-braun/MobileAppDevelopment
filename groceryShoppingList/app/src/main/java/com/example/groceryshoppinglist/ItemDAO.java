@@ -15,8 +15,8 @@ public interface ItemDAO {
     @Query("SELECT * FROM item_table ")
     LiveData<List<Item>> getAllItems();
 
-    @Query("SELECT * FROM item_table WHERE Category = :category ")
-    LiveData<List<Item>> getItemsByCategory(String category);
+    @Query("SELECT * FROM item_table WHERE ListID = :listID ORDER BY Category ASC")
+    LiveData<List<Item>> getItemsByListID(Integer listID);
 
     @Query("SELECT * FROM item_table WHERE Category = :category AND ListID = :listID ")
     LiveData<List<Item>> getItemsByCategoryAndList(String category, Integer listID);

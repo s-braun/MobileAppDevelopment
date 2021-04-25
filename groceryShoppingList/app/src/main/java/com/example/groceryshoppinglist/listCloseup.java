@@ -102,7 +102,7 @@ public class listCloseup extends AppCompatActivity {
         });*/
 
         //change category and listID here
-        mItemViewModel.getItemsByCategoryAndListID("Produce", listID).observe(this, items -> {
+        mItemViewModel.getItemsByListID(listID).observe(this, items -> {
             //Update the cached copy of the items in the adapter.
             adapter.submitList(items);
         });

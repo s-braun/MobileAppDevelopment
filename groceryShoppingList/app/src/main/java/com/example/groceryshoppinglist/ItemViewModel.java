@@ -13,7 +13,7 @@ public class ItemViewModel extends AndroidViewModel {
     private ItemRepository mRepository;
 
     private final LiveData<List<Item>> mAllItems;
-    private LiveData<List<Item>> mItemsByCategory;
+    private LiveData<List<Item>> mItemsByListID;
     private LiveData<List<Item>> mItemsByCategoryAndListID;
 
     public ItemViewModel (@NonNull Application application, String category, int listID){
@@ -21,14 +21,14 @@ public class ItemViewModel extends AndroidViewModel {
 
         mRepository = new ItemRepository(application);
         mAllItems = mRepository.getAllItems();
-        mItemsByCategory = mRepository.getItemsByCategory(category);
+        mItemsByListID = mRepository.getItemsByListID(listID);
         mItemsByCategoryAndListID = mRepository.getItemsByCategoryAndList(category, listID);
     }
 
     LiveData<List<Item>> getAllItems() {return mAllItems;}
 
-    LiveData<List<Item>> getItemsByCategory(String category){
-        return mRepository.getItemsByCategory(category);
+    LiveData<List<Item>> getItemsByListID(Integer listID){
+        return mRepository.getItemsByListID(listID);
     }
 
     LiveData<List<Item>> getItemsByCategoryAndListID(String category, int listID){
