@@ -21,6 +21,9 @@ public interface ItemDAO {
     @Query("SELECT * FROM item_table WHERE Category = :category AND ListID = :listID ")
     LiveData<List<Item>> getItemsByCategoryAndList(String category, Integer listID);
 
+    @Query("DELETE FROM item_table WHERE item_ID = :itemID")
+    void deleteItem(int itemID);
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(Item item);
 

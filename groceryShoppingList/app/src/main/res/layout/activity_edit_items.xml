@@ -135,6 +135,36 @@
                 app:strokeColor="#98BBBF" />
 
             <Button
+                android:id="@+id/deleteBtn"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="384dp"
+                android:layout_height="73dp"
+                android:background="#98BBBF"
+                android:backgroundTint="#601D1D"
+                android:drawableLeft="@android:drawable/presence_offline"
+                android:drawableTint="#FFFFFF"
+                android:editable="false"
+                android:foregroundTint="#C3C0C0"
+                android:paddingLeft="40dp"
+                android:paddingRight="100dp"
+                android:text="Delete Item"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="#0C0C0C"
+                app:icon="@android:drawable/ic_menu_delete"
+                app:iconSize="64dp"
+                app:iconTint="#FF0000"
+                app:iconTintMode="multiply"
+                app:layout_constraintBottom_toTopOf="@+id/cancelButton2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.481"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/confirmEditBtn22"
+                app:layout_constraintVertical_bias="0.363"
+                app:rippleColor="@color/white"
+                app:strokeColor="#98BBBF" />
+
+            <Button
                 android:id="@+id/cancelButton2"
                 style="@android:style/Widget.Material.Button.Borderless.Colored"
                 android:layout_width="410dp"

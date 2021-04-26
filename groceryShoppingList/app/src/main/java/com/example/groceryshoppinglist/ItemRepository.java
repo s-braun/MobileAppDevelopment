@@ -47,9 +47,9 @@ public class ItemRepository {
         });
     }
 
-    void updateItem(Item item){
+    void deleteItem(int itemID){
         GroceryDatabase.databaseWriteExecutor.execute(() -> {
-            mItemDao.updateItem(item);
+            mItemDao.deleteItem(itemID);
         });
     }
 

@@ -22,15 +22,6 @@ public class editItems extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_items);
 
-        /*//get values from input
-        Intent intent = getIntent();
-
-        String itemName = intent.getStringExtra("itemName");
-        String itemValue = intent.getStringExtra("itemValue");
-        int id = intent.getIntExtra("id", 0);
-
-        */
-
         Intent intent = getIntent();
         String ownerName = intent.getStringExtra("ownerName");
         int itemID = intent.getIntExtra("itemID", 0);
@@ -58,8 +49,6 @@ public class editItems extends AppCompatActivity {
         mItemViewModel = new ViewModelProvider(this, factory).get(ItemViewModel.class);
 
 
-
-
         //configure edit items button
         final Button ConfirmButton = findViewById(R.id.confirmEditBtn22);
         ConfirmButton.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +61,21 @@ public class editItems extends AppCompatActivity {
 
                 // Update the values in the database!
                 mItemViewModel.updateItemValues(itemID, editedName, editedAmount, editedCategory);
+
+                Intent intent = new Intent (editItems.this, listCloseup.class);
+                intent.putExtra("listID", listID);
+                intent.putExtra("ownerEmail", ownerName);
+                startActivity(intent);
+            }
+        });
+
+        //configure delete item button
+        final Button deleteButton = findViewById(R.id.deleteBtn);
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v){
+
+                // Update the values in the database!
+                mItemViewModel.deleteItem(itemID);
 
                 Intent intent = new Intent (editItems.this, listCloseup.class);
                 intent.putExtra("listID", listID);
