@@ -60,34 +60,28 @@
                 app:layout_constraintVertical_bias="0.024"
                 tools:srcCompat="@tools:sample/avatars" />
 
+            <Spinner
+                android:id="@+id/editSpinner"
+                android:layout_width="385dp"
+                android:layout_height="81dp"
+                app:layout_constraintBottom_toTopOf="@+id/editItem"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/listownerName4" />
+
             <EditText
                 android:id="@+id/editItem"
                 android:layout_width="411dp"
                 android:layout_height="86dp"
-                android:layout_marginTop="14dp"
+                android:layout_marginBottom="250dp"
                 android:background="#CDC7C7"
                 android:backgroundTint="#70919191"
                 android:ems="10"
                 android:gravity="center"
                 android:inputType="textPersonName"
                 android:text="ItemName"
+                app:layout_constraintBottom_toTopOf="@+id/cancelButton2"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editItemCategory" />
-
-            <EditText
-                android:id="@+id/editItemCategory"
-                android:layout_width="411dp"
-                android:layout_height="86dp"
-                android:layout_marginTop="16dp"
-                android:background="#CDC7C7"
-                android:backgroundTint="#70919191"
-                android:ems="10"
-                android:gravity="center"
-                android:inputType="textPersonName"
-                android:text="ItemCategory"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/listownerName4" />
 
