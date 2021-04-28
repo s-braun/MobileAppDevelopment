@@ -40,4 +40,6 @@ public class ItemViewModel extends AndroidViewModel {
     public void updateItemValues(int id, String name, String amount, String category) { mRepository.updateItemValues(id, name, amount, category); }
 
     public void deleteItem(int itemID) {mRepository.deleteItem(itemID);}
+
+    public void updateIsChecked(Boolean isChecked, String name, String amount, String category) {mRepository.updateIsChecked(isChecked, name, amount, category);}
 }

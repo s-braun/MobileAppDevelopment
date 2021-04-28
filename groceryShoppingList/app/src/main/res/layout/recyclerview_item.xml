@@ -26,9 +26,10 @@
             style="@style/word_title"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:background="#C6C1C1"
-            android:text="Value"
-            android:layout_weight="1"/>
+            android:onClick="checkBtn"
+            android:text="Value" />
 
         <TextView
             android:id="@+id/textView"

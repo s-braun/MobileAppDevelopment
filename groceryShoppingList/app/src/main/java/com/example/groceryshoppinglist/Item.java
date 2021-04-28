@@ -30,13 +30,18 @@ public class Item {
     @ColumnInfo(name = "Category")
     private String mCategory;
 
+    @NonNull
+    @ColumnInfo(name = "checked")
+    private Boolean mIsChecked;
+
     // Constructor
-    public Item(Integer itemID, @NonNull String item, @NonNull String quantity, @NonNull Integer listID, @NonNull String category) {
+    public Item(Integer itemID, @NonNull String item, @NonNull String quantity, @NonNull Integer listID, @NonNull String category, @NonNull Boolean isChecked) {
         this.mItemID = itemID;
         this.mItem = item;
         this.mQuantity = quantity;
         this.mListID = listID;
         this.mCategory = category;
+        this.mIsChecked = isChecked;
     }
 
     //getter & setter methods of item
@@ -56,5 +61,8 @@ public class Item {
 
     public int getItemID(){return this.mItemID;}
     public void setItemID(int itemID){this.mItemID = itemID;}
+
+    public Boolean getIsChecked() {return this.mIsChecked;}
+    public void setIsChecked(Boolean check){this.mIsChecked = check;}
 
 }
