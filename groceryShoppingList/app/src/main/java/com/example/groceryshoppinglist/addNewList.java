@@ -1,6 +1,7 @@
 package com.example.groceryshoppinglist;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,13 +14,21 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
+
 public class addNewList extends AppCompatActivity {
+
+    private int userCount = 0;
 
    public void addUser1(View view) {
 
         FloatingActionButton addBtn = (FloatingActionButton) findViewById(R.id.btnAdd1);
 
         addBtn.setImageResource(R.drawable.ic_baseline_check_circle_24);
+        userCount++;
+
+       Intent intent = new Intent("USER1").putExtra("user1", "Collin");
+       LocalBroadcastManager.getInstance(addNewList.this).sendBroadcast(intent);
 
     }
     public void addUser2(View view) {
@@ -27,6 +36,10 @@ public class addNewList extends AppCompatActivity {
         FloatingActionButton addBtn = (FloatingActionButton) findViewById(R.id.btnAdd2);
 
         addBtn.setImageResource(R.drawable.ic_baseline_check_circle_24);
+        userCount++;
+
+        Intent intent = new Intent("USER2").putExtra("user2", "Mecca");
+        LocalBroadcastManager.getInstance(addNewList.this).sendBroadcast(intent);
 
     }
     public void addUser3(View view) {
@@ -34,6 +47,10 @@ public class addNewList extends AppCompatActivity {
         FloatingActionButton addBtn = (FloatingActionButton) findViewById(R.id.btnAdd3);
 
         addBtn.setImageResource(R.drawable.ic_baseline_check_circle_24);
+        userCount++;
+
+        Intent intent = new Intent("USER3").putExtra("user3", "Sebastian");
+        LocalBroadcastManager.getInstance(addNewList.this).sendBroadcast(intent);
 
     }
 
@@ -48,18 +65,6 @@ public class addNewList extends AppCompatActivity {
         startActivity(cancel);
     }
 
-    /*public void create(View view){
-        //get values from input
-        Intent intent = getIntent();
-        int listCount = intent.getIntExtra("numOfLists", 0);
-        listCount++;
-        String name = intent.getStringExtra("userName");
-
-        Intent create = new Intent(this, Overview.class);
-        create.putExtra("listCount", listCount);
-        create.putExtra("username", name);
-        startActivity(create);
-    }*/
 
     public void sendInvitation(View view){
         EditText fstName = (EditText)findViewById(R.id.editFirstName);
@@ -90,17 +95,27 @@ public class addNewList extends AppCompatActivity {
 
         ownerName.setText(String.valueOf(name));
 
+        Intent intent1 = new Intent("USER1").putExtra("user1", "");
+        LocalBroadcastManager.getInstance(addNewList.this).sendBroadcast(intent1);
+        Intent intent2 = new Intent("USER2").putExtra("user2", "");
+        LocalBroadcastManager.getInstance(addNewList.this).sendBroadcast(intent2);
+        Intent intent3 = new Intent("USER3").putExtra("user3", "");
+        LocalBroadcastManager.getInstance(addNewList.this).sendBroadcast(intent3);
+
 
         final Button button = findViewById(R.id.btnCreate);
         button.setOnClickListener(view -> {
-            Intent replyIntent = new Intent();
-            if (TextUtils.isEmpty(name)) {
-                setResult(RESULT_CANCELED, replyIntent);
-            } else {
-                replyIntent.putExtra("ownerEmail", name);
-                setResult(RESULT_OK, replyIntent);
-            }
-            finish();
+            System.out.println(userCount);
+
+                Intent replyIntent = new Intent();
+                if (TextUtils.isEmpty(name)) {
+                    setResult(RESULT_CANCELED, replyIntent);
+                } else {
+                    replyIntent.putExtra("ownerEmail", name);
+                    setResult(RESULT_OK, replyIntent);
+                }
+                finish();
+
         });
 
     }
