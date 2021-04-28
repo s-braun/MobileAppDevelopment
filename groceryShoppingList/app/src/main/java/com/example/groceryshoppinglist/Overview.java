@@ -70,6 +70,7 @@ public class Overview extends AppCompatActivity {
 
         // Add new list button listener
         addListListener();
+        logoutButton();
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         final ListclassListAdapter adapter = new ListclassListAdapter(new ListclassListAdapter.ListDiff());
@@ -135,6 +136,21 @@ public class Overview extends AppCompatActivity {
         Intent intent = new Intent(this, addNewList.class);
         intent.putExtra("userName", ownerName);
         startActivityForResult(intent, NEW_ITEM_ACTIVITY_REQUEST_CODE);
+    }
+
+    public void logoutButton() {
+        Button buttonAddNewList = findViewById(R.id.logoutButton);
+        buttonAddNewList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                logout();
+            }
+        });
+    }
+
+    public void logout() {
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
     }
 
 }
