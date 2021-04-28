@@ -14,7 +14,7 @@
     <string name="hint_quantity">Quantity...</string>
     <string name="hint_category">Category...</string>
     <string name="button_save">Save</string>
-    <string name="empty_not_saved">item not saved because it is empty.</string>
+    <string name="empty_not_saved">Item not saved because it is empty.</string>
 
     //string for the spinner on add new item
     <string-array name="categories_array">
