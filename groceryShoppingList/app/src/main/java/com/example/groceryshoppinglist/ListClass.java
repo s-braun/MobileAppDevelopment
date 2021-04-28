@@ -17,9 +17,26 @@ public class ListClass {
     @ColumnInfo(name = "owner_email")
     private String mOwnerEmail;
 
+    @ColumnInfo(name = "user1")
+    private String mUser1;
+
+    @ColumnInfo(name = "user2")
+    private String mUser2;
+
     // Constructor
     public ListClass(@NonNull String mOwnerEmail) {
         this.mOwnerEmail = mOwnerEmail;
+    }
+
+    public ListClass(@NonNull String mOwnerEmail, String user1) {
+        this.mOwnerEmail = mOwnerEmail;
+        mUser1 = user1;
+    }
+
+    public ListClass(@NonNull String mOwnerEmail, String user1, String user2) {
+        this.mOwnerEmail = mOwnerEmail;
+        mUser1 = user1;
+        mUser2 = user2;
     }
 
     // Getters and setters
