@@ -18,6 +18,6 @@ public interface ListDAO {
     @Delete
     void delete(ListClass list);
 
-    @Query("SELECT * FROM list_table WHERE owner_email = :email ")
+    @Query("SELECT * FROM list_table WHERE owner_email = :email OR user1 = :email OR user2 = :email")
     LiveData<List<ListClass>> getListsByOwner(String email);
 }
