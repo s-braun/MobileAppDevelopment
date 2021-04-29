@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,12 +19,15 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
         itemItemView = itemView.findViewById(R.id.textView);
         itemValue = itemView.findViewById(R.id.checkBox);
         itemCategory = itemView.findViewById(R.id.itemCategory);
+        
     }
 
-    public void bind(String name, String value, String category) {
+    public void bind(String name, String value, String category, Boolean isChecked) {
         itemItemView.setText(name);
         itemValue.setText(value);
+        itemValue.setChecked(isChecked);
         itemCategory.setText(category);
+
     }
 
     static ItemViewHolder create(ViewGroup parent) {
@@ -31,6 +35,5 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
                 .inflate(R.layout.recyclerview_item, parent, false);
         return new ItemViewHolder(view);
     }
-
 
 }

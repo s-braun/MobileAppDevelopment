@@ -30,7 +30,7 @@ public interface ItemDAO {
     @Query("UPDATE item_table SET item_Name = :newName, Quantity = :newQuantity, Category = :newCategory WHERE item_ID = :itemID")
     void updateItemValues(int itemID, String newName, String newQuantity, String newCategory);
 
-    @Update(onConflict = OnConflictStrategy.IGNORE)
-    void updateItem(Item item);
+    @Query("UPDATE item_table SET checked = :isChecked WHERE item_ID = :itemID")
+    void updateIsChecked(Boolean isChecked, int itemID);
 
 }
