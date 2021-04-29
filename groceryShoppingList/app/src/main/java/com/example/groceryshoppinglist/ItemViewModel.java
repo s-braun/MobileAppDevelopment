@@ -41,5 +41,5 @@ public class ItemViewModel extends AndroidViewModel {
 
     public void deleteItem(int itemID) {mRepository.deleteItem(itemID);}
 
-    public void updateIsChecked(Boolean isChecked, String name, String amount, String category) {mRepository.updateIsChecked(isChecked, name, amount, category);}
+    public void updateIsChecked(Boolean isChecked, int itemID) {mRepository.updateIsChecked(isChecked, itemID);}
 }

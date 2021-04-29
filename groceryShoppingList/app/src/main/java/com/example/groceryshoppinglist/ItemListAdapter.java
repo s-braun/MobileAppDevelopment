@@ -18,7 +18,6 @@ import androidx.recyclerview.widget.ListAdapter;
 public class ItemListAdapter extends ListAdapter<Item, ItemViewHolder> {
 
     String ownerName;
-    private int swap = 0;
 
     public ItemListAdapter(@NonNull DiffUtil.ItemCallback<Item> diffCallback, String name) {
         super(diffCallback);
@@ -51,42 +50,28 @@ public class ItemListAdapter extends ListAdapter<Item, ItemViewHolder> {
             }
         });
 
+        CheckBox check = holder.itemView.findViewById(R.id.checkBox);
+        check.setOnClickListener( v ->{
+            Context context = v.getContext();
 
-        /*CheckBox check = holder.itemView.findViewById(R.id.checkBox);
-        check.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Context context = v.getContext();
-                Intent intent2 = new Intent("ITEM_ID").putExtra("itemID", current.getItemID());
-                LocalBroadcastManager.getInstance(context).sendBroadcast(intent2);
+            Intent intent = new Intent(context, listCloseup.class);
+            intent.putExtra("ownerEmail", ownerName);
+            intent.putExtra("itemID", current.getItemID());
+            intent.putExtra("listID", current.getListID());
+            context.startActivity(intent);
 
-                if(swap == 0){
-                    Intent intent1 = new Intent("CHECKED").putExtra("isChecked", true);
-                    LocalBroadcastManager.getInstance(context).sendBroadcast(intent1);
-                    swap = 1;
-                    check.setChecked(true);
-                } else {
-                    Intent intent1 = new Intent("CHECKED").putExtra("isChecked", false);
-                    LocalBroadcastManager.getInstance(context).sendBroadcast(intent1);
-                    swap = 0;
-                    check.setChecked(false);
-                }
 
+            if(check.isChecked()){
+                check.setChecked(true);
+                current.setIsChecked(true);
+            } else {
+                check.setChecked(false);
+                current.setIsChecked(false);
             }
-        });*/
+
+        });
 
     }
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
-    public int getItemViewType(int position) {
-        return position;
-    }
-
-
 
     static class ItemDiff extends DiffUtil.ItemCallback<Item> {
 

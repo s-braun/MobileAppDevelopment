@@ -28,7 +28,6 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#C6C1C1"
-            android:onClick="checkBtn"
             android:text="Value" />
 
         <TextView

@@ -52,26 +52,6 @@ public class listCloseup extends AppCompatActivity {
     }
 
 
-    public void checkBtn(View view){
-        Intent intent = getIntent();
-        String name = intent.getStringExtra("ownerEmail");
-        int listID = intent.getIntExtra("listID", 0);
-
-        itemItemView = (TextView) findViewById(R.id.textView);
-        itemCategory = (TextView) findViewById(R.id.itemCategory);
-        CheckBox box = (CheckBox) findViewById(R.id.checkBox);
-        ItemViewModelFactory factory = new ItemViewModelFactory(this.getApplication(), listID);
-        mItemViewModel = new ViewModelProvider(this, factory).get(ItemViewModel.class);
-
-        if(box.isChecked()){
-            System.out.println(itemItemView.getText().toString());
-            System.out.println(box.getText().toString());
-            System.out.println(itemCategory.getText().toString());
-            mItemViewModel.updateIsChecked(true, itemItemView.getText().toString(), box.getText().toString(), itemCategory.getText().toString());
-        }
-    }
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,6 +61,9 @@ public class listCloseup extends AppCompatActivity {
         Intent intent = getIntent();
         String name = intent.getStringExtra("ownerEmail");
         int listID = intent.getIntExtra("listID", 0);
+        int itemID = intent.getIntExtra("itemID", 0);
+
+        System.out.println(name);
 
         if(name != null) {
             TextView ownerName = (TextView) findViewById(R.id.listownerName2);
@@ -106,6 +89,10 @@ public class listCloseup extends AppCompatActivity {
             adapter.submitList(items);
         });
 
+
+        if(itemID != 0){
+            mItemViewModel.updateIsChecked(true, itemID);
+        }
 
     }
 

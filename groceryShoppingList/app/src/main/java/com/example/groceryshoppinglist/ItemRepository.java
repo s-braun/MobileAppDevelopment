@@ -59,9 +59,9 @@ public class ItemRepository {
         });
     }
 
-    void updateIsChecked(Boolean isChecked, String name, String amount, String category){
+    void updateIsChecked(Boolean isChecked, int itemID){
         GroceryDatabase.databaseWriteExecutor.execute(() -> {
-            mItemDao.updateIsChecked(isChecked, name, amount, category);
+            mItemDao.updateIsChecked(isChecked, itemID);
         });
     }
 
