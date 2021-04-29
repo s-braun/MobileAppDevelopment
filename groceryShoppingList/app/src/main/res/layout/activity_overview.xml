@@ -6,20 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".Overview">
 
-    <Button
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/logoutButton"
-        android:layout_width="95dp"
-        android:layout_height="86dp"
-        android:layout_marginTop="8dp"
-        android:background="#00FFFFFF"
-        android:text="Logout"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#2E2E2E"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/listOwnerName"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="#959595"
+        android:backgroundTint="#BEBDBF"
+        android:clickable="true"
+        app:backgroundTint="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/listOwnerName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.551"
+        app:srcCompat="@drawable/ic_baseline_logout_24" />
 
     <TextView
         android:id="@+id/listOwnerName"
@@ -30,6 +30,7 @@
         android:text="Your Lists"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />

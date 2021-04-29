@@ -16,6 +16,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 
 public class Overview extends AppCompatActivity {
@@ -139,8 +141,8 @@ public class Overview extends AppCompatActivity {
     }
 
     public void logoutButton() {
-        Button buttonAddNewList = findViewById(R.id.logoutButton);
-        buttonAddNewList.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton logout = findViewById(R.id.logoutButton);
+        logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 logout();
