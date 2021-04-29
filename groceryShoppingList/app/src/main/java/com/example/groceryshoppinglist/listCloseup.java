@@ -31,10 +31,12 @@ public class listCloseup extends AppCompatActivity {
         Intent intent = getIntent();
         String name = intent.getStringExtra("ownerEmail");
         int listID = intent.getIntExtra("listID", 0);
+        String currentUser = intent.getStringExtra("currentUser");
 
         Intent newItem = new Intent(this, addNewItem.class);
         newItem.putExtra("userName", name);
         newItem.putExtra("listID", listID);
+        newItem.putExtra("currentUser", currentUser);
 
         startActivityForResult(newItem, NEW_ITEM_ACTIVITY_REQUEST_CODE);
     }
@@ -43,10 +45,10 @@ public class listCloseup extends AppCompatActivity {
     public void backBtn(View view){
         //get values from input
         Intent intent = getIntent();
-        String name = intent.getStringExtra("ownerEmail");
+        String currentUser = intent.getStringExtra("currentUser");
 
         Intent backBtn = new Intent(this, Overview.class);
-        backBtn.putExtra("username", name);
+        backBtn.putExtra("username", currentUser);
 
         startActivity(backBtn);
     }
@@ -62,6 +64,7 @@ public class listCloseup extends AppCompatActivity {
         String name = intent.getStringExtra("ownerEmail");
         int listID = intent.getIntExtra("listID", 0);
         int itemID = intent.getIntExtra("itemID", 0);
+        String currentUser = intent.getStringExtra("currentUser");
 
         System.out.println(name);
 
@@ -76,7 +79,7 @@ public class listCloseup extends AppCompatActivity {
 
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        final ItemListAdapter adapter = new ItemListAdapter(new ItemListAdapter.ItemDiff(), name);
+        final ItemListAdapter adapter = new ItemListAdapter(new ItemListAdapter.ItemDiff(), name, currentUser);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

@@ -52,6 +52,7 @@ public class editItems extends AppCompatActivity implements AdapterView.OnItemSe
         String itemValue = intent.getStringExtra("itemValue");
         listID = intent.getIntExtra("listID", 0);
         String category = intent.getStringExtra("category");
+        String currentUser = intent.getStringExtra("currentUser");
 
         int convertCategory = 0;
         switch (category){
@@ -104,6 +105,7 @@ public class editItems extends AppCompatActivity implements AdapterView.OnItemSe
                 Intent intent = new Intent (editItems.this, listCloseup.class);
                 intent.putExtra("listID", listID);
                 intent.putExtra("ownerEmail", ownerName);
+                intent.putExtra("currentUser", currentUser);
                 startActivity(intent);
             }
         });
@@ -119,6 +121,7 @@ public class editItems extends AppCompatActivity implements AdapterView.OnItemSe
                 Intent intent = new Intent (editItems.this, listCloseup.class);
                 intent.putExtra("listID", listID);
                 intent.putExtra("ownerEmail", ownerName);
+                intent.putExtra("currentUser", currentUser);
                 startActivity(intent);
             }
         });
@@ -130,6 +133,7 @@ public class editItems extends AppCompatActivity implements AdapterView.OnItemSe
                 Intent intent = new Intent (editItems.this, listCloseup.class);
                 intent.putExtra("listID", listID);
                 intent.putExtra("ownerEmail", ownerName);
+                intent.putExtra("currentUser", currentUser);
                 startActivity(intent);
             }
         });

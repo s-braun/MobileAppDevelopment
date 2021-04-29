@@ -73,7 +73,7 @@ public class Overview extends AppCompatActivity {
         logoutButton();
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        final ListclassListAdapter adapter = new ListclassListAdapter(new ListclassListAdapter.ListDiff());
+        final ListclassListAdapter adapter = new ListclassListAdapter(new ListclassListAdapter.ListDiff(), ownerName);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

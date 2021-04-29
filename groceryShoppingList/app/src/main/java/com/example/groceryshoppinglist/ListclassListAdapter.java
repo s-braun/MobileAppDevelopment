@@ -13,8 +13,12 @@ import java.util.Objects;
 
 public class ListclassListAdapter extends ListAdapter<ListClass, ListViewHolder> {
 
-    public ListclassListAdapter(@NonNull DiffUtil.ItemCallback<ListClass> diffCallback) {
+    String user;
+
+    public ListclassListAdapter(@NonNull DiffUtil.ItemCallback<ListClass> diffCallback, String name) {
         super(diffCallback);
+
+        user = name;
     }
 
     @Override
@@ -33,6 +37,7 @@ public class ListclassListAdapter extends ListAdapter<ListClass, ListViewHolder>
                 Intent intent = new Intent(context, listCloseup.class);
                 intent.putExtra("listID", current.getListID());
                 intent.putExtra("ownerEmail", current.getOwnerEmail());
+                intent.putExtra("currentUser", user);
                 context.startActivity(intent);
 
                 System.out.println(current.getListID());

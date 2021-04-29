@@ -18,10 +18,12 @@ import androidx.recyclerview.widget.ListAdapter;
 public class ItemListAdapter extends ListAdapter<Item, ItemViewHolder> {
 
     String ownerName;
+    String currentUser;
 
-    public ItemListAdapter(@NonNull DiffUtil.ItemCallback<Item> diffCallback, String name) {
+    public ItemListAdapter(@NonNull DiffUtil.ItemCallback<Item> diffCallback, String name, String currentUser) {
         super(diffCallback);
         ownerName = name;
+        this.currentUser = currentUser;
     }
 
     @Override
@@ -44,6 +46,7 @@ public class ItemListAdapter extends ListAdapter<Item, ItemViewHolder> {
                 intent.putExtra("itemValue", current.getQuantity());
                 intent.putExtra("listID", current.getListID());
                 intent.putExtra("category", current.getCategory());
+                intent.putExtra("currentUser", currentUser);
                 context.startActivity(intent);
 
                 System.out.println(current.getItemID());
@@ -58,6 +61,7 @@ public class ItemListAdapter extends ListAdapter<Item, ItemViewHolder> {
             intent.putExtra("ownerEmail", ownerName);
             intent.putExtra("itemID", current.getItemID());
             intent.putExtra("listID", current.getListID());
+            intent.putExtra("currentUser", currentUser);
             context.startActivity(intent);
 
 

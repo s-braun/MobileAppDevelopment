@@ -55,6 +55,7 @@ public class addNewItem extends AppCompatActivity implements AdapterView.OnItemS
         Intent intent = getIntent();
         String name = intent.getStringExtra("userName");
         listID = intent.getIntExtra("listID", 0);
+        String currentUser = intent.getStringExtra("currentUser");
 
         // Set the owner name at the top of screen
         TextView listOwnerName = (TextView)findViewById(R.id.listownerName5);
@@ -82,6 +83,7 @@ public class addNewItem extends AppCompatActivity implements AdapterView.OnItemS
                     replyIntent.putExtra("category", category);
                     replyIntent.putExtra("listIDFromAdd", listID);
                     replyIntent.putExtra("ownerEmail", name);
+                    replyIntent.putExtra("currentUser", currentUser);
                     setResult(RESULT_OK, replyIntent);
                 }
                 finish();
@@ -95,6 +97,7 @@ public class addNewItem extends AppCompatActivity implements AdapterView.OnItemS
                 Intent intent = new Intent (addNewItem.this, listCloseup.class);
                 intent.putExtra("ownerEmail", name);
                 intent.putExtra("listID", listID);
+                intent.putExtra("currentUser", currentUser);
                 startActivity(intent);
             }
         });
